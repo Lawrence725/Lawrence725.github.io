@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Title</title>
+        <link rel="icon" type="image/png" href="img/favicon.png"/>
+        <!-- CSS -->
+        <link rel="stylesheet" href="index.css">
+        <!-- Google Font -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+TC">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+TC">
+        <!-- Google Icon -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Awesome Icon -->
+        <link href="fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="body fixed"> <!-- class: fixed -->
+            <!-- Spinner -->
+            <!-- <div class="spinner"><div><div></div></div></div> -->
+            <!-- Toast -->
+            <div id="toast">
+                <div><span class="fS white">Message</span></div>
+            </div>
+            <!-- Header -->
+            <section class="header">
+                <!-- Icon -->
+                <a class="icon iconButton" href="javascript:history.back()">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+                <span class="fL">Title</span>
+                <!-- Icon -->
+                <a class="icon iconButton">
+                    <i class="fas fa-bell"></i>
+                    <div class="new"></div>
+                </a>
+            </section>
+            <!-- Main -->
+            <section class="main">
+                <!-- Banner -->
+                <div class="banners">
+                    <div class="banner">
+                        <img src="img/banner1.png">
+                    </div>
+                    <div class="banner">
+                        <img src="img/banner2.png">
+                    </div>
+                    <div class="banner">
+                        <img src="img/banner1.png">
+                        <div class="text">
+                            <span class="fL">Slogan</span>
+                        </div>
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+                    <div class="dots">
+                        <span class="dot"></span> 
+                        <span class="dot"></span> 
+                        <span class="dot"></span> 
+                    </div>
+                </div>
+                <!-- Text -->
+                <span class="fL margin">Large</span>
+                <span class="fM margin disabled">Middle Disabled</span>
+                <div class="lineH"></div>
+                <span class="fS margin error">Small Error</span>
+                <div class="itemV width padding margin">
+                    <span class="fM single">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
+                    <span class="fM double">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
+                </div>
+                <div class="itemV center width margin">
+                    <!-- Image -->
+                    <div class="img">
+                        <img src="img/favicon.png">
+                    </div>
+                    <span class="fM">LUX</span>
+                </div>
+                <div class="itemH padding margin">
+                    <!-- Icon -->
+                    <div class="icon">
+                        <i class="fas fa-bell"></i>
+                        <div class="new"></div>
+                    </div>
+                    <div class="icon"><span class="material-icons">qr_code_scanner</span></div>
+                    <!-- Icon Button -->
+                    <a class="icon iconButton fill"><i class="fas fa-home"></i></a>
+                    <!-- Text Button -->
+                    <a class="textButton fM" onclick="showToast()">Button</a>
+                </div>
+                <div class="itemV padding margin">
+                    <!-- Switch -->
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
+                    <!-- Radio -->
+                    <label class="check">
+                        <input type="radio" name="radio1" checked> <!-- checked -->
+                        <span class="checkmark radio"></span>
+                        <span class="text fM">Radio</span>
+                    </label>
+                    <!-- Checkbox -->
+                    <label class="check">
+                        <input type="checkbox" name="checkbox1" checked> <!-- checked -->
+                        <span class="checkmark checkbox"></span>
+                        <span class="text fM">Checkbox</span>
+                    </label>
+                </div>
+                <!-- Tabs -->
+                <div class="tabs fS">
+                    <a class="tab active">
+                        <span>Tab</span>
+                    </a>
+                    <a class="tab">
+                        <span>Tab</span>
+                    </a>
+                </div>
+                <!-- Number -->
+                <div class="number">
+                    <input type="number" class="fM" value="10" min="0">
+                    <span class="fM unit">Unit</span>
+                </div>
+                <!-- Dropdown -->
+                <div class="dropdown">
+                    <select name="type" class="fM">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                    <div class="arrow"><i class="fas fa-caret-down fa-xs"></i></div>
+                </div>
+                <!-- Date Range -->
+                <div class="dateRange">
+                    <input type="date" class="fM" name="startDate">
+                    <span class="fL">-</span>
+                    <input type="date" class="fM" name="endDate">
+                </div>
+                <!-- Input -->
+                <div class="input">
+                    <div class="icon"><i class="fas fa-mobile"></i></div>
+                    <input type="text" class="fM" placeholder="自行輸入" value="">
+                </div>
+                <!-- Textarea -->
+                <textarea class="fM" placeholder="Textarea"></textarea>
+                <!-- Table -->
+                <table class="fM">
+                    <tr>
+                        <th><span>1</span></th>
+                        <th><span>2</span></th>
+                        <th><span>3</span></th>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <span>A1</span>
+                        </td>
+                        <td align="center">
+                            <span>A2</span>
+                        </td>
+                        <td align="center">
+                            <span>A3</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <span>A1</span>
+                        </td>
+                        <td align="center">
+                            <span>A2</span>
+                        </td>
+                        <td align="center">
+                            <span>A3</span>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <!-- Footer -->
+            <section class="footer">
+                <!-- Button -->
+                <a id="buttonSmall" class="button secondary"><span class="fM">Cancel</span></a>
+                <a id="buttonLarge" class="button"><span class="fM">Button</span></a>
+            </section>
+            <!-- Popup (Small) -->
+            <section id="popSmall" class="popup notice">
+                <div class="popBody">
+                    <a class="close"><i class="fas fa-times"></i></a>
+                    <section class="popHeader">
+                        <span class="fL">Title</span>
+                    </section>
+                    <section class="popMain">
+                        <span class="fM">Message1</span>
+                        <span class="fM">Message2</span>
+                    </section>
+                    <section class="popFooter">
+                        <a class="button cancel white"><span class="fS">Cancel</span></a>
+                        <a class="button submit"><span class="fS">Submit</span></a>
+                    </section>
+                </div>
+            </section>
+            <!-- Popup (Large)-->
+            <section id="popLarge" class="popup">
+                <div class="popBody">
+                    <a class="close"><i class="fas fa-times"></i></a>
+                    <section class="popHeader">
+                        <span class="fL">Policy</span>
+                    </section>
+                    <section class="popMain full">
+                        <div class="itemV margin padding">
+                            <span class="fM">「TTPush」APP為臺東縣政府</span>
+                            <ol class="chin">
+                                <li class="fM">一、適用範圍</li>
+                                <ol>
+                                    <li class="fS">蒐集個人資料類別</li>
+                                    <ul>
+                                        <li class="fXS none bold">依據法務部頒佈之個人資料保護法： </li>
+                                        <li class="fXS none">辨識個人者。(姓名、住址、工作地址)</li>
+                                    </ul>
+                                    <li class="fS">本府將會在以下目的及情形蒐集：</li>
+                                    <ul>
+                                        <li class="fXS bold">期間</li>
+                                        <li class="fXS none">個人資料蒐集之特定目的存續期間。</li>
+                                    </ul>
+                                    <li class="fS">本府收集的資訊將用做以下用途：</li>
+                                    <ul>
+                                        <li class="fXS">提供您更佳的服務品質。</li>
+                                    </ul>
+                                </ol>
+                                <li class="fM">二、您的權利</li>
+                                <ol class="romanU">
+                                    <li class="fS">用戶不得利用本服務從事未經本府事前：</li>
+                                    <ul>
+                                        <li class="fXS">未經同意收集他人電子郵件位址以及其他個人資料。</li>
+                                    </ul>
+                                    <li class="fS none">如果用戶或第三人所上傳、刊載、傳輸、發送或儲存之任何文字、圖片、影片、檔案或其他著作或資料。</li>
+                                </ol>
+                            </ol>
+                        </div>
+                    </section>
+                    <section class="popFooter">
+                        <a class="button cancel white"><span class="fS">Cancel</span></a>
+                        <a class="button submit"><span class="fS">Submit</span></a>
+                    </section>
+                </div>
+            </section>
+        </div>
+        <!-- Script -->
+        <script src="index.js"></script>
+    </body>
+</html>
