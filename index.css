@@ -28,6 +28,9 @@ button {
 .body .gray {
   color: #828282 !important;
 }
+.body .minor {
+  color: #BDBDBD !important;
+}
 .body .disabled {
   color: #BDBDBD !important;
   filter: grayscale(100%);
@@ -41,6 +44,9 @@ button {
 }
 .body .background {
   background-color: #F2F1F6 !important;
+}
+.body .fXXL {
+  font-size: 36px;
 }
 .body .fXL {
   font-size: 24px;
@@ -136,9 +142,6 @@ button {
 .body :before {
   box-sizing: unset;
   -webkit-box-sizing: unset;
-}
-.body .hide {
-  display: none !important;
 }
 .body .header {
   width: calc(100% - 20px);
@@ -268,6 +271,17 @@ button {
 .body .itemV.padding.margin.width {
   width: calc(100% - 20px);
 }
+.body .hide {
+  display: none !important;
+}
+.body .spaceS {
+  width: 100%;
+  height: 10px;
+}
+.body .spaceL {
+  width: 100%;
+  height: 50px;
+}
 .body .lineH {
   width: 100%;
   height: 1px;
@@ -314,6 +328,11 @@ button {
 }
 .body .icon.white {
   color: white;
+}
+.body .icon.fit {
+  min-width: fit-content;
+  min-height: fit-content;
+  margin: 0;
 }
 .body .icon .new {
   width: 10px;
@@ -519,6 +538,9 @@ button {
 .body .tabs .tab:not(.active):hover {
   background-color: #BDBDBD;
 }
+.body .tabs .tab:not(.active) span {
+  color: #828282;
+}
 .body .switch {
   position: relative;
   display: inline-block;
@@ -539,9 +561,9 @@ button {
   box-shadow: 0 0 1px #27AE60;
 }
 .body .switch input:checked + .slider:before {
-  -webkit-transform: translateX(-14px);
-  -ms-transform: translateX(-14px);
-  transform: translateX(-14px);
+  -webkit-transform: translateX(14px);
+  -ms-transform: translateX(14px);
+  transform: translateX(14px);
 }
 .body .switch .slider {
   position: absolute;
@@ -560,7 +582,7 @@ button {
   content: "";
   height: 16px;
   width: 16px;
-  left: 16px;
+  left: 2px;
   bottom: 2px;
   border-radius: 50%;
   background-color: white;
