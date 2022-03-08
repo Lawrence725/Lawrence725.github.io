@@ -20,7 +20,7 @@
         <link href="fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
     </head>
     <body>
-        <div class="body fixed"> <!-- class: fixed -->
+        <div class="body fixed mobile"> <!-- class: fixed, mobile -->
             <!-- Spinner -->
             <!-- <div class="spinner"><div><div></div></div></div> -->
             <!-- Toast -->
@@ -69,18 +69,16 @@
                 <span class="fM margin disabled">Middle Disabled</span>
                 <div class="lineH"></div>
                 <span class="fS margin error">Small Error</span>
-                <div class="itemV width padding margin">
+                <div class="itemV width padding margin background">
                     <span class="fM single">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
                     <span class="fM double">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span>
                 </div>
-                <div class="itemV center width margin">
+                <div class="itemV center width margin background rounded">
                     <!-- Image -->
-                    <div class="img">
-                        <img src="img/favicon.png">
-                    </div>
+                    <div class="img"><img src="img/favicon.png"></div>
                     <span class="fM">LUX</span>
                 </div>
-                <div class="itemH padding margin">
+                <div class="itemH padding margin background">
                     <!-- Icon -->
                     <div class="icon">
                         <i class="fas fa-bell"></i>
@@ -88,11 +86,11 @@
                     </div>
                     <div class="icon"><span class="material-icons">qr_code_scanner</span></div>
                     <!-- Icon Button -->
-                    <a class="icon iconButton fill"><i class="fas fa-home"></i></a>
+                    <a class="icon iconButton fill" onclick="rotate(this)"><i class="fas fa-home"></i></a>
                     <!-- Text Button -->
                     <a class="textButton fM" onclick="showToast()">Button</a>
                 </div>
-                <div class="itemV padding margin">
+                <div class="itemV padding margin background">
                     <!-- Switch -->
                     <label class="switch">
                         <input type="checkbox" checked>
@@ -181,8 +179,8 @@
             <!-- Footer -->
             <section class="footer">
                 <!-- Button -->
-                <a id="buttonSmall" class="button secondary"><span class="fM">Cancel</span></a>
-                <a id="buttonLarge" class="button"><span class="fM">Button</span></a>
+                <a class="button secondary" onclick="popSmall()"><span class="fM">Cancel</span></a>
+                <a class="button" onclick="popLarge()"><span class="fM">Button</span></a>
             </section>
             <!-- Popup (Small) -->
             <section id="popSmall" class="popup notice">
@@ -209,33 +207,33 @@
                         <span class="fL">Policy</span>
                     </section>
                     <section class="popMain full">
-                        <div class="itemV margin padding">
+                        <div class="itemV margin padding background">
                             <span class="fM">「TTPush」APP為臺東縣政府</span>
                             <ol class="chin">
-                                <li class="fM">一、適用範圍</li>
+                                <li class="fM">一、中文數字</li>
                                 <ol>
-                                    <li class="fS">蒐集個人資料類別</li>
+                                    <li class="fS">Number</li>
                                     <ul>
-                                        <li class="fXS none bold">依據法務部頒佈之個人資料保護法： </li>
-                                        <li class="fXS none">辨識個人者。(姓名、住址、工作地址)</li>
+                                        <li class="fXS none bold">None</li>
+                                        <li class="fXS none">None</li>
                                     </ul>
-                                    <li class="fS">本府將會在以下目的及情形蒐集：</li>
+                                    <li class="fS">Number</li>
                                     <ul>
-                                        <li class="fXS bold">期間</li>
-                                        <li class="fXS none">個人資料蒐集之特定目的存續期間。</li>
+                                        <li class="fXS bold">Dot</li>
+                                        <li class="fXS none">None</li>
                                     </ul>
-                                    <li class="fS">本府收集的資訊將用做以下用途：</li>
+                                    <li class="fS">Number</li>
                                     <ul>
-                                        <li class="fXS">提供您更佳的服務品質。</li>
+                                        <li class="fXS">None</li>
                                     </ul>
                                 </ol>
-                                <li class="fM">二、您的權利</li>
+                                <li class="fM">二、中文數字</li>
                                 <ol class="romanU">
-                                    <li class="fS">用戶不得利用本服務從事未經本府事前：</li>
+                                    <li class="fS">Roman number</li>
                                     <ul>
-                                        <li class="fXS">未經同意收集他人電子郵件位址以及其他個人資料。</li>
+                                        <li class="fXS">Dot</li>
                                     </ul>
-                                    <li class="fS none">如果用戶或第三人所上傳、刊載、傳輸、發送或儲存之任何文字、圖片、影片、檔案或其他著作或資料。</li>
+                                    <li class="fS none">None</li>
                                 </ol>
                             </ol>
                         </div>

@@ -16,8 +16,12 @@ button {
   font-family: 'Noto Sans TC', 'Arial', '微軟正黑體', '新細明體', 'sans-serif';
 }
 .body {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: url(img/bg.png);
+  background-position: center;
+  background-attachment: fixed;
 }
 .body .primary {
   color: #F0941D !important;
@@ -69,18 +73,6 @@ button {
 .body .under {
   text-decoration: underline !important;
 }
-.body span.white {
-  color: white;
-}
-.body span.center {
-  text-align: center;
-}
-.body span.margin {
-  margin: 5px;
-}
-.body span.width {
-  width: 100%;
-}
 .body .single {
   white-space: nowrap;
   overflow: hidden;
@@ -92,6 +84,54 @@ button {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.body .textButton {
+  color: #F0941D;
+  border-radius: 5px;
+}
+.body .textButton:hover {
+  color: #828282;
+}
+.body span.white,
+.body .textButton.white {
+  color: white;
+}
+.body span.center,
+.body .textButton.center {
+  text-align: center;
+}
+.body span.margin,
+.body .textButton.margin {
+  margin: 5px;
+}
+.body span.width,
+.body .textButton.width {
+  width: 100%;
+}
+.body ol {
+  padding: 0 0 20px 30px;
+}
+.body ol.chin {
+  list-style-type: none;
+}
+.body ol.chin > li {
+  margin-left: -20px;
+}
+.body ol.romanU {
+  list-style-type: upper-roman;
+}
+.body ol ol {
+  padding: 0 0 10px 20px;
+}
+.body ol ul {
+  padding: 0 0 10px 20px;
+  list-style-type: disc;
+}
+.body ol li {
+  margin: 5px 0;
+}
+.body ol li.none {
+  list-style-type: none;
 }
 .body span {
   color: #333333;
@@ -197,19 +237,26 @@ button {
   backdrop-filter: blur(10px);
   box-shadow: 0px -10px 20px rgba(55, 84, 170, 0.1);
 }
+@media (min-width: 1024px), (max-width: 1023px) and (min-width: 768px) {
+  .body.mobile .header,
+  .body.mobile .main,
+  .body.mobile .footer {
+    width: 748px;
+    margin-left: calc(50% - 374px);
+    margin-right: calc(50% - 374px);
+  }
+}
 .body .itemH {
   width: fit-content;
   border-radius: 5px;
   display: flex;
   align-items: center;
-  background-color: #FFF4E5;
 }
 .body .itemV {
   width: fit-content;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  background-color: #FFF4E5;
 }
 .body .itemH.start,
 .body .itemV.start {
@@ -288,6 +335,9 @@ button {
   margin: 5px 0;
   background-color: #E0E0E0;
 }
+.body .rounded {
+  border-radius: 999px !important;
+}
 .body .img {
   width: 100px;
   height: 100px;
@@ -356,12 +406,6 @@ button {
 .body .icon .material-icons.md-48 {
   font-size: 48px;
 }
-.body .textButton {
-  color: #F0941D;
-}
-.body .textButton:hover {
-  color: #828282;
-}
 .body .button {
   width: 100%;
   height: 40px;
@@ -372,6 +416,11 @@ button {
   align-items: center;
   justify-content: center;
   background-color: #F0941D;
+}
+.body .button.fit {
+  width: fit-content;
+  height: fit-content;
+  padding: 10px 20px;
 }
 .body .button.delete {
   background-color: #EB5757 !important;
@@ -822,6 +871,32 @@ button {
 .body table .edit .off {
   color: #E0E0E0;
 }
+.body .rotateF {
+  animation-name: rotateF;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+.body .rotateB {
+  animation-name: rotateB;
+  animation-duration: 0.5s;
+  animation-direction: reverse;
+}
+@keyframes rotateF {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+@keyframes rotateB {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
 .body #toast {
   width: calc(100% - 20px);
   bottom: 90px;
@@ -970,7 +1045,7 @@ button {
 }
 .body .popup .popBody {
   width: 100%;
-  height: calc(100% - 60px);
+  max-height: calc(100% - 60px);
   padding: 10px;
   margin: 20px;
   border-radius: 5px;
@@ -1011,31 +1086,6 @@ button {
   border-radius: 5px;
   background-color: #E0E0E0;
   border: 2.5px solid white;
-}
-.body .popup .popBody .popMain ol {
-  padding: 0 0 20px 30px;
-}
-.body .popup .popBody .popMain ol.chin {
-  list-style-type: none;
-}
-.body .popup .popBody .popMain ol.chin > li {
-  margin-left: -20px;
-}
-.body .popup .popBody .popMain ol.romanU {
-  list-style-type: upper-roman;
-}
-.body .popup .popBody .popMain ol ol {
-  padding: 0 0 10px 20px;
-}
-.body .popup .popBody .popMain ol ul {
-  padding: 0 0 10px 20px;
-  list-style-type: disc;
-}
-.body .popup .popBody .popMain ol li {
-  margin: 5px 0;
-}
-.body .popup .popBody .popMain ol li.none {
-  list-style-type: none;
 }
 .body .popup .popBody .popMain .message {
   width: calc(100% - 10px);
