@@ -246,77 +246,99 @@ button {
     margin-right: calc(50% - 374px);
   }
 }
-.body .itemH {
+.body .flexH {
   width: fit-content;
   border-radius: 5px;
   display: flex;
   align-items: center;
 }
-.body .itemV {
+.body .flexV {
   width: fit-content;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
 }
-.body .itemH.start,
-.body .itemV.start {
+.body .flexH.start,
+.body .flexV.start {
   align-items: flex-start;
 }
-.body .itemH.center,
-.body .itemV.center {
+.body .flexH.center,
+.body .flexV.center {
   align-items: center;
 }
-.body .itemH.end,
-.body .itemV.end {
+.body .flexH.end,
+.body .flexV.end {
   align-items: flex-end;
 }
-.body .itemH.middle,
-.body .itemV.middle {
+.body .flexH.middle,
+.body .flexV.middle {
   justify-content: center;
 }
-.body .itemH.between,
-.body .itemV.between {
+.body .flexH.between,
+.body .flexV.between {
   justify-content: space-between;
 }
-.body .itemH.around,
-.body .itemV.around {
+.body .flexH.around,
+.body .flexV.around {
   justify-content: space-around;
 }
-.body .itemH.radius,
-.body .itemV.radius {
+.body .flexH.radius,
+.body .flexV.radius {
   border-radius: 0;
 }
-.body .itemH.full,
-.body .itemV.full {
+.body .flexH.full,
+.body .flexV.full {
   width: 100vw;
 }
-.body .itemH.width,
-.body .itemV.width {
+.body .flexH.width,
+.body .flexV.width {
   width: 100%;
 }
-.body .itemH.height,
-.body .itemV.height {
+.body .flexH.height,
+.body .flexV.height {
   height: 100%;
 }
-.body .itemH.padding,
-.body .itemV.padding {
+.body .flexH.padding,
+.body .flexV.padding {
   padding: 5px;
 }
-.body .itemH.padding.width,
-.body .itemV.padding.width {
+.body .flexH.padding.width,
+.body .flexV.padding.width {
   width: calc(100% - 10px);
 }
-.body .itemH.margin,
-.body .itemV.margin {
+.body .flexH.margin,
+.body .flexV.margin {
   margin: 5px;
 }
-.body .itemH.margin.width,
-.body .itemV.margin.width {
+.body .flexH.margin.width,
+.body .flexV.margin.width {
   width: calc(100% - 10px);
 }
-.body .itemH.padding.margin.width,
-.body .itemV.padding.margin.width {
+.body .flexH.padding.margin.width,
+.body .flexV.padding.margin.width {
   width: calc(100% - 20px);
+}
+.body .grid {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto;
+  grid-template-areas: "header header header header" "main main . sidebar" "footer footer footer footer";
+}
+.body .grid .grid1 {
+  grid-area: header;
+  background-color: #F0941D;
+}
+.body .grid .grid2 {
+  grid-area: main;
+  background-color: #FFF4E5;
+}
+.body .grid .grid3 {
+  grid-area: sidebar;
+  background-color: #27AE60;
+}
+.body .grid .grid4 {
+  grid-area: footer;
+  background-color: #EB5757;
 }
 .body .hide {
   display: none !important;
@@ -470,6 +492,10 @@ button {
 }
 .body .input.center input {
   text-align: center;
+}
+.body .input.fake {
+  background-color: transparent;
+  pointer-events: none;
 }
 .body .input input {
   width: 100%;
@@ -818,6 +844,19 @@ button {
   border-collapse: unset;
   -webkit-border-horizontal-spacing: 0;
   -webkit-border-vertical-spacing: 10px;
+}
+.body table.fit {
+  width: fit-content;
+}
+.body table.empty {
+  -webkit-border-horizontal-spacing: 0;
+  -webkit-border-vertical-spacing: 0;
+}
+.body table.empty tr {
+  background-color: transparent !important;
+}
+.body table.empty td {
+  padding: 0 10px 0 0;
 }
 .body table tr:not(:first-child) {
   background-color: #F2F1F6;

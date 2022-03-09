@@ -83,9 +83,9 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
         .main   { padding: 60px 10px 80px; }
         .footer { height: 70px; padding: 0 10px; border-radius: 20px 20px 0 0; bottom: 0; z-index: 1; position: fixed; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0px -10px 20px rgba(55, 84, 170, 0.1); }}
     &.mobile { @media @sD, @sT { .header, .main, .footer { width: 748px; margin-left: calc(50% - 374px); margin-right: calc(50% - 374px); }}}
-    .itemH  { width: fit-content; border-radius: 5px; display: flex; align-items: center; }
-    .itemV  { width: fit-content; border-radius: 5px; display: flex; flex-direction: column; }
-    .itemH, .itemV {
+    .flexH  { width: fit-content; border-radius: 5px; display: flex; align-items: center; }
+    .flexV  { width: fit-content; border-radius: 5px; display: flex; flex-direction: column; }
+    .flexH, .flexV {
         &.start                 { align-items: flex-start; }
         &.center                { align-items: center; }
         &.end                   { align-items: flex-end; }
@@ -101,6 +101,15 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
         &.margin                { margin: 5px;
             &.width             { width: calc(100% - 10px); }}
         &.padding.margin.width  { width: calc(100% - 20px); }}
+    .grid { display: grid; grid-template-columns: auto auto auto auto; grid-template-rows: auto; grid-template-areas: 
+        "header header header header"
+        "main main . sidebar"
+        "footer footer footer footer";
+        .grid1 { grid-area: header; background-color: @c1; }
+        .grid2 { grid-area: main; background-color: @c2; }
+        .grid3 { grid-area: sidebar; background-color: @cGreen; }
+        .grid4 { grid-area: footer; background-color: @cRed; }
+    }
 
     // Component
     .hide { display: none !important; }
@@ -137,6 +146,7 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
     .input { width: calc(100% - 20px); height: 40px; padding: 0 5px; margin: 5px; border-radius: 5px; display: flex; align-items: center; background-color: @cBg;
         @media @sD { width: 400px; }
         &.center input { text-align: center; }
+        &.fake { background-color: transparent; pointer-events: none; }
         input { width: 100%; height: 100%; }
         .button { width: fit-content; height: calc(100% - 10px); margin: 0;
             span { white-space: nowrap; }}}
@@ -190,6 +200,10 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
             .dot { height: 8px; width: 8px; border: 1px solid white; margin: 0 5px; background-color: white; border-radius: 50%; display: inline-block; transition: background-color 0.6s ease; }
             .active { background-color: @c1; }}}
     table { margin: 5px; border-collapse: unset; -webkit-border-horizontal-spacing: 0; -webkit-border-vertical-spacing: 10px;
+        &.fit { width: fit-content; }
+        &.empty { -webkit-border-horizontal-spacing: 0; -webkit-border-vertical-spacing: 0;
+            tr { background-color: transparent !important; }
+            td { padding: 0 10px 0 0; }}
         tr:not(:first-child) { background-color: @cBg; }
         th { text-align: center; }
         td { padding: 5px 2.5px;
