@@ -80,16 +80,16 @@
                 </div>
                 <div class="grid">
                     <div class="grid1">
-                        header
+                        <span class="fM">Header</span>
                     </div>
                     <div class="grid2">
-                        main
+                        <span class="fM">Main</span>
                     </div>
                     <div class="grid3">
-                        sidebar
+                        <span class="fM">Sidebar</span>
                     </div>
                     <div class="grid4">
-                        footer
+                        <span class="fM">Footer</span>
                     </div>
                 </div>
                 <div class="flexH padding margin background">
@@ -153,13 +153,10 @@
                     <input type="date" class="fM" name="endDate"> -->
                 </div>
                 <!-- Input -->
-                <div class="input">
+                <div class="input error"> <!-- class: fake -->
                     <div class="icon"><i class="fas fa-mobile"></i></div>
                     <input type="text" class="fM" placeholder="自行輸入" value="">
-                </div>
-                <div class="input fake">
-                    <div class="icon"><i class="fas fa-mobile"></i></div>
-                    <input type="text" class="fM" placeholder="自行輸入" value="">
+                    <span class="fS error message">必填</span>
                 </div>
                 <!-- Textarea -->
                 <textarea class="fM" placeholder="Textarea"></textarea>
@@ -226,7 +223,7 @@
                 <a class="button" onclick="popLarge()"><span class="fM">Button</span></a>
             </section>
             <!-- Popup (Small) -->
-            <section id="popSmall" class="popup notice">
+            <section id="popSmall" class="popup">
                 <div class="popBody">
                     <a class="close"><i class="fas fa-times"></i></a>
                     <section class="popHeader">
@@ -249,8 +246,8 @@
                     <section class="popHeader">
                         <span class="fL">Policy</span>
                     </section>
-                    <section class="popMain full">
-                        <div class="flexV margin padding background">
+                    <section class="popMain">
+                        <div class="flexV">
                             <span class="fM">「TTPush」APP為臺東縣政府</span>
                             <ol class="chin">
                                 <li class="fM">一、中文數字</li>
@@ -274,7 +271,17 @@
                                 <ol class="romanU">
                                     <li class="fS">Roman number</li>
                                     <ul>
-                                        <li class="fXS">Dot</li>
+                                        <li class="fXS none bold">None</li>
+                                        <li class="fXS none">None</li>
+                                    </ul>
+                                    <li class="fS">Roman number</li>
+                                    <ul>
+                                        <li class="fXS bold">Dot</li>
+                                        <li class="fXS none">None</li>
+                                    </ul>
+                                    <li class="fS">Roman number</li>
+                                    <ul>
+                                        <li class="fXS">None</li>
                                     </ul>
                                     <li class="fS none">None</li>
                                 </ol>

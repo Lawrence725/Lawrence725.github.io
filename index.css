@@ -306,6 +306,10 @@ button {
 .body .flexV.padding.width {
   width: calc(100% - 10px);
 }
+.body .flexH.padding.height,
+.body .flexV.padding.height {
+  height: calc(100% - 10px);
+}
 .body .flexH.margin,
 .body .flexV.margin {
   margin: 5px;
@@ -314,31 +318,115 @@ button {
 .body .flexV.margin.width {
   width: calc(100% - 10px);
 }
+.body .flexH.margin.height,
+.body .flexV.margin.height {
+  height: calc(100% - 10px);
+}
 .body .flexH.padding.margin.width,
 .body .flexV.padding.margin.width {
   width: calc(100% - 20px);
 }
+.body .flexH.padding.margin.height,
+.body .flexV.padding.margin.height {
+  height: calc(100% - 20px);
+}
 .body .grid {
+  width: calc(100% - 10px);
+  margin: 5px;
   display: grid;
+  column-gap: 10px;
+  row-gap: 10px;
   grid-template-columns: auto auto auto auto;
   grid-template-rows: auto;
   grid-template-areas: "header header header header" "main main . sidebar" "footer footer footer footer";
 }
+.body .grid > div {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #F2F1F6;
+}
 .body .grid .grid1 {
   grid-area: header;
-  background-color: #F0941D;
 }
 .body .grid .grid2 {
   grid-area: main;
-  background-color: #FFF4E5;
 }
 .body .grid .grid3 {
   grid-area: sidebar;
-  background-color: #27AE60;
 }
 .body .grid .grid4 {
   grid-area: footer;
-  background-color: #EB5757;
+}
+.body table {
+  margin: 5px;
+  border-collapse: unset;
+  -webkit-border-horizontal-spacing: 0;
+  -webkit-border-vertical-spacing: 10px;
+}
+.body table.fit {
+  width: fit-content;
+}
+.body table.empty {
+  -webkit-border-horizontal-spacing: 0;
+  -webkit-border-vertical-spacing: 0;
+}
+.body table.empty tr {
+  background-color: transparent !important;
+}
+.body table.empty td {
+  padding: 0 10px 0 0;
+}
+.body table tr:not(:first-child) {
+  background-color: #F2F1F6;
+}
+.body table th {
+  text-align: center;
+}
+.body table td {
+  padding: 5px 2.5px;
+}
+.body table td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+.body table td:last-child {
+  border-radius: 0 5px 5px 0;
+}
+.body table td span {
+  line-height: 30px;
+  white-space: unset !important;
+}
+.body table .action {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
+.body table .action a {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #BDBDBD;
+}
+.body table .edit .input,
+.body table .edit .dropdown > select,
+.body table .edit .timeRange,
+.body table .edit .timeRange > select,
+.body table .edit .dateRange,
+.body table .edit .dateRange > input,
+.body table .edit .number,
+.body table .edit .number > input,
+.body table .edit .week,
+.body table .edit .el-date-editor.el-input__inner,
+.body table .edit .el-range-input {
+  background-color: white;
+}
+.body table .edit .action > a {
+  color: #F0941D;
+}
+.body table .edit .off {
+  color: #E0E0E0;
 }
 .body .hide {
   display: none !important;
@@ -481,6 +569,7 @@ button {
   padding: 0 5px;
   margin: 5px;
   border-radius: 5px;
+  position: relative;
   display: flex;
   align-items: center;
   background-color: #F2F1F6;
@@ -497,9 +586,22 @@ button {
   background-color: transparent;
   pointer-events: none;
 }
+.body .input.error {
+  margin-bottom: 20px;
+  border: 1.5px solid #EB5757;
+}
+.body .input.error .message {
+  display: flex;
+}
 .body .input input {
   width: 100%;
   height: 100%;
+}
+.body .input .message {
+  top: 43px;
+  left: 5px;
+  position: absolute;
+  display: none;
 }
 .body .input .button {
   width: fit-content;
@@ -839,77 +941,6 @@ button {
 .body .banners .dots .active {
   background-color: #F0941D;
 }
-.body table {
-  margin: 5px;
-  border-collapse: unset;
-  -webkit-border-horizontal-spacing: 0;
-  -webkit-border-vertical-spacing: 10px;
-}
-.body table.fit {
-  width: fit-content;
-}
-.body table.empty {
-  -webkit-border-horizontal-spacing: 0;
-  -webkit-border-vertical-spacing: 0;
-}
-.body table.empty tr {
-  background-color: transparent !important;
-}
-.body table.empty td {
-  padding: 0 10px 0 0;
-}
-.body table tr:not(:first-child) {
-  background-color: #F2F1F6;
-}
-.body table th {
-  text-align: center;
-}
-.body table td {
-  padding: 5px 2.5px;
-}
-.body table td:first-child {
-  border-radius: 5px 0 0 5px;
-}
-.body table td:last-child {
-  border-radius: 0 5px 5px 0;
-}
-.body table td span {
-  line-height: 30px;
-  white-space: unset !important;
-}
-.body table .action {
-  width: fit-content;
-  display: flex;
-  align-items: center;
-}
-.body table .action a {
-  width: 20px;
-  height: 20px;
-  margin: 0 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #BDBDBD;
-}
-.body table .edit .input,
-.body table .edit .dropdown > select,
-.body table .edit .timeRange,
-.body table .edit .timeRange > select,
-.body table .edit .dateRange,
-.body table .edit .dateRange > input,
-.body table .edit .number,
-.body table .edit .number > input,
-.body table .edit .week,
-.body table .edit .el-date-editor.el-input__inner,
-.body table .edit .el-range-input {
-  background-color: white;
-}
-.body table .edit .action > a {
-  color: #F0941D;
-}
-.body table .edit .off {
-  color: #E0E0E0;
-}
 .body .rotateF {
   animation-name: rotateF;
   animation-duration: 0.5s;
@@ -1063,10 +1094,6 @@ button {
   background-color: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(4px);
 }
-.body .popup.notice .popBody {
-  width: 300px;
-  height: fit-content;
-}
 .body .popup .close {
   top: 20px;
   right: 20px;
@@ -1083,7 +1110,9 @@ button {
   color: #333333;
 }
 .body .popup .popBody {
-  width: 100%;
+  min-width: 300px;
+  max-width: 100%;
+  height: fit-content;
   max-height: calc(100% - 60px);
   padding: 10px;
   margin: 20px;
@@ -1103,33 +1132,19 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-.body .popup .popBody .popMain.full {
-  height: 100%;
-  margin: 15px 5px;
-  border-radius: 5px;
-  align-items: flex-start;
   justify-content: flex-start;
-  background-color: white;
   overflow-y: auto;
-  /* should match background, can't be transparent */
 }
-.body .popup .popBody .popMain.full::-webkit-scrollbar {
+.body .popup .popBody .popMain::-webkit-scrollbar {
   -webkit-appearance: none;
 }
-.body .popup .popBody .popMain.full::-webkit-scrollbar:vertical {
+.body .popup .popBody .popMain::-webkit-scrollbar:vertical {
   width: 10px;
 }
-.body .popup .popBody .popMain.full::-webkit-scrollbar-thumb {
+.body .popup .popBody .popMain::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: #E0E0E0;
-  border: 2.5px solid white;
-}
-.body .popup .popBody .popMain .message {
-  width: calc(100% - 10px);
-  margin: 5px;
-  text-align: center;
+  border: 2.5px solid #F2F1F6;
 }
 .body .popup .popBody .popFooter {
   display: flex;

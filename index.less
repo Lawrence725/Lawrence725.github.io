@@ -86,30 +86,51 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
     .flexH  { width: fit-content; border-radius: 5px; display: flex; align-items: center; }
     .flexV  { width: fit-content; border-radius: 5px; display: flex; flex-direction: column; }
     .flexH, .flexV {
-        &.start                 { align-items: flex-start; }
-        &.center                { align-items: center; }
-        &.end                   { align-items: flex-end; }
-        &.middle                { justify-content: center; }
-        &.between               { justify-content: space-between; }
-        &.around                { justify-content: space-around; }
-        &.radius                { border-radius: 0; }
-        &.full                  { width: 100vw; }
-        &.width                 { width: 100%; }
-        &.height                { height: 100%; }
-        &.padding               { padding: 5px;
-            &.width             { width: calc(100% - 10px); }}
-        &.margin                { margin: 5px;
-            &.width             { width: calc(100% - 10px); }}
-        &.padding.margin.width  { width: calc(100% - 20px); }}
-    .grid { display: grid; grid-template-columns: auto auto auto auto; grid-template-rows: auto; grid-template-areas: 
+        &.start             { align-items: flex-start; }
+        &.center            { align-items: center; }
+        &.end               { align-items: flex-end; }
+        &.middle            { justify-content: center; }
+        &.between           { justify-content: space-between; }
+        &.around            { justify-content: space-around; }
+        &.radius            { border-radius: 0; }
+        &.full              { width: 100vw; }
+        &.width             { width: 100%; }
+        &.height            { height: 100%; }
+        &.padding           { padding: 5px;
+            &.width         { width: calc(100% - 10px); }
+            &.height        { height: calc(100% - 10px); }}
+        &.margin            { margin: 5px;
+            &.width         { width: calc(100% - 10px); }
+            &.height        { height: calc(100% - 10px); }}
+        &.padding.margin    {
+            &.width         { width: calc(100% - 20px); }
+            &.height        { height: calc(100% - 20px); }}}
+    .grid { width: calc(100% - 10px); margin: 5px; display: grid; column-gap: 10px; row-gap: 10px; grid-template-columns: auto auto auto auto; grid-template-rows: auto; grid-template-areas: 
         "header header header header"
         "main main . sidebar"
         "footer footer footer footer";
-        .grid1 { grid-area: header; background-color: @c1; }
-        .grid2 { grid-area: main; background-color: @c2; }
-        .grid3 { grid-area: sidebar; background-color: @cGreen; }
-        .grid4 { grid-area: footer; background-color: @cRed; }
-    }
+        > div { padding: 5px; border-radius: 5px; background-color: @cBg; }
+        .grid1 { grid-area: header; }
+        .grid2 { grid-area: main; }
+        .grid3 { grid-area: sidebar; }
+        .grid4 { grid-area: footer; }}
+    table { margin: 5px; border-collapse: unset; -webkit-border-horizontal-spacing: 0; -webkit-border-vertical-spacing: 10px;
+        &.fit { width: fit-content; }
+        &.empty { -webkit-border-horizontal-spacing: 0; -webkit-border-vertical-spacing: 0;
+            tr { background-color: transparent !important; }
+            td { padding: 0 10px 0 0; }}
+        tr:not(:first-child) { background-color: @cBg; }
+        th { text-align: center; }
+        td { padding: 5px 2.5px;
+            &:first-child { border-radius: 5px 0 0 5px; }
+            &:last-child { border-radius: 0 5px 5px 0; }
+            span { line-height: 30px; white-space: unset !important; }}
+        .action { width: fit-content; display: flex; align-items: center;
+            a { width: 20px; height: 20px; margin: 0 5px; display: flex; align-items: center; justify-content: center; color: @cG4; }}
+        .edit {
+            .input, .dropdown > select, .timeRange, .timeRange > select, .dateRange, .dateRange > input, .number, .number > input, .week, .el-date-editor.el-input__inner, .el-range-input { background-color: white; }
+            .action > a { color: @c1; }
+            .off { color: @cG5; }}}
 
     // Component
     .hide { display: none !important; }
@@ -143,11 +164,14 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
             &:hover { background-color: @cG5; }
             i, span { color: @cG2; }}
         .icon, span { color: white; }}
-    .input { width: calc(100% - 20px); height: 40px; padding: 0 5px; margin: 5px; border-radius: 5px; display: flex; align-items: center; background-color: @cBg;
+    .input { width: calc(100% - 20px); height: 40px; padding: 0 5px; margin: 5px; border-radius: 5px; position: relative; display: flex; align-items: center; background-color: @cBg;
         @media @sD { width: 400px; }
         &.center input { text-align: center; }
         &.fake { background-color: transparent; pointer-events: none; }
+        &.error { margin-bottom: 20px; border: 1.5px solid @cRed;
+            .message { display: flex; }}
         input { width: 100%; height: 100%; }
+        .message { top: 43px; left: 5px; position: absolute; display: none; }
         .button { width: fit-content; height: calc(100% - 10px); margin: 0;
             span { white-space: nowrap; }}}
     textarea { width: calc(100% - 30px); min-height: 50px; padding: 10px; margin: 5px; border-radius: 5px; background-color: @cBg; color: @cG1; }
@@ -199,23 +223,6 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
         .dots { width: 100%; display: flex; justify-content: center; position: absolute; bottom: 10px;
             .dot { height: 8px; width: 8px; border: 1px solid white; margin: 0 5px; background-color: white; border-radius: 50%; display: inline-block; transition: background-color 0.6s ease; }
             .active { background-color: @c1; }}}
-    table { margin: 5px; border-collapse: unset; -webkit-border-horizontal-spacing: 0; -webkit-border-vertical-spacing: 10px;
-        &.fit { width: fit-content; }
-        &.empty { -webkit-border-horizontal-spacing: 0; -webkit-border-vertical-spacing: 0;
-            tr { background-color: transparent !important; }
-            td { padding: 0 10px 0 0; }}
-        tr:not(:first-child) { background-color: @cBg; }
-        th { text-align: center; }
-        td { padding: 5px 2.5px;
-            &:first-child { border-radius: 5px 0 0 5px; }
-            &:last-child { border-radius: 0 5px 5px 0; }
-            span { line-height: 30px; white-space: unset !important; }}
-        .action { width: fit-content; display: flex; align-items: center;
-            a { width: 20px; height: 20px; margin: 0 5px; display: flex; align-items: center; justify-content: center; color: @cG4; }}
-        .edit {
-            .input, .dropdown > select, .timeRange, .timeRange > select, .dateRange, .dateRange > input, .number, .number > input, .week, .el-date-editor.el-input__inner, .el-range-input { background-color: white; }
-            .action > a { color: @c1; }
-            .off { color: @cG5; }}}
 
     // Animation
     .rotateF { animation-name: rotateF; animation-duration: 0.5s; animation-fill-mode: forwards; }
@@ -241,16 +248,13 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
 
     // Popup
     .popup { width: 100%; height: 100%; left: 0; top: 0; position: fixed; display: none; align-items: center; justify-content: center; overflow-x: hidden; overflow-y: hidden; z-index: 2; background-color: rgba(0,0,0,0.75); backdrop-filter: blur(4px);
-        &.notice .popBody { width: 300px; height: fit-content; }
         .close { top: 20px; right: 20px; height: 20px; width: 20px; position: absolute; display: flex; align-items: center; justify-content: center; color: @cG4;
             &:hover, &:focus { color: @cG1; }}
-        .popBody { width: 100%; max-height: calc(100% - 60px); padding: 10px; margin: 20px; border-radius: 5px; position: relative; display: flex; flex-direction: column; background-color: @cBg;
+        .popBody { min-width: 300px; max-width: 100%; height: fit-content; max-height: calc(100% - 60px); padding: 10px; margin: 20px; border-radius: 5px; position: relative; display: flex; flex-direction: column; background-color: @cBg;
             .popHeader { margin: 5px; display: flex; flex-direction: column; }
-            .popMain { margin: 15px 0px; display: flex; flex-direction: column; align-items: center; justify-content: center;
-                &.full { height: 100%; margin: 15px 5px; border-radius: 5px; align-items: flex-start; justify-content: flex-start; background-color: white; overflow-y: auto; 
-                    &::-webkit-scrollbar { -webkit-appearance: none; }
-                    &::-webkit-scrollbar:vertical { width: 10px; }
-                    &::-webkit-scrollbar-thumb { border-radius: 5px; background-color: @cG5; border: 2.5px solid white; } /* should match background, can't be transparent */}
-                .message { width: calc(100% - 10px); margin: 5px; text-align: center; }}
+            .popMain { margin: 15px 0px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; overflow-y: auto;
+                &::-webkit-scrollbar { -webkit-appearance: none; }
+                &::-webkit-scrollbar:vertical { width: 10px; }
+                &::-webkit-scrollbar-thumb { border-radius: 5px; background-color: @cG5; border: 2.5px solid @cBg; }}
             .popFooter { display: flex; }}}
 }
