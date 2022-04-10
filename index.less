@@ -87,8 +87,8 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
         .main   { padding: 60px 10px 80px; }
         .footer { height: 70px; padding: 0 10px; border-radius: 20px 20px 0 0; bottom: 0; z-index: 8; position: fixed; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0px -10px 20px rgba(55, 84, 170, 0.1); }}
     &.mobile { @media @sD, @sT { .header, .main, .footer { width: 748px; margin-left: calc(50% - 374px); margin-right: calc(50% - 374px); }}}
-    .flexH  { width: fit-content; border-radius: 5px; display: flex; align-items: center; }
-    .flexV  { width: fit-content; border-radius: 5px; display: flex; flex-direction: column; }
+    .flexH  { width: fit-content; border-radius: 10px; display: flex; align-items: center; }
+    .flexV  { width: fit-content; border-radius: 10px; display: flex; flex-direction: column; }
     .flexH, .flexV {
         &.start             { align-items: flex-start; }
         &.center            { align-items: center; }
@@ -114,7 +114,7 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
         "header header header header"
         "main main . sidebar"
         "footer footer footer footer";
-        > div { padding: 5px; border-radius: 5px; background-color: @cBg; }
+        > div { padding: 5px; border-radius: 10px; background-color: @cBg; }
         .grid1 { grid-area: header; }
         .grid2 { grid-area: main; }
         .grid3 { grid-area: sidebar; }
@@ -127,8 +127,8 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
         tr:not(:first-child) { background-color: @cBg; }
         th { text-align: center; }
         td { padding: 5px 2.5px;
-            &:first-child { border-radius: 5px 0 0 5px; }
-            &:last-child { border-radius: 0 5px 5px 0; }
+            &:first-child { border-radius: 10px 0 0 10px; }
+            &:last-child { border-radius: 0 10px 10px 0; }
             span { line-height: 30px; white-space: unset !important; }}
         .action { width: fit-content; display: flex; align-items: center;
             a { width: 20px; height: 20px; margin: 0 5px; display: flex; align-items: center; justify-content: center; color: @cG4; }}
@@ -150,16 +150,15 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
         &.iconButton { min-width: 30px; min-height: 30px;
             &:hover { background-color: @cBg; }
             &.fill { color: white; background-color: @c1; }
-            .new { top: 2px; right: 2px; }}
+            .new { width: 14px; height: 14px; border: 1px solid white; border-radius: 99px; top: -2px; right: -2px; position: absolute; background-color: @cRed; }}
         &.black { color: @cG1; }
         &.white { color: white; }
         &.fit { min-width: fit-content; min-height: fit-content; margin: 0; }
-        .new { width: 10px; height: 10px; border: 1px solid white; border-radius: 99px; top: -3px; right: -3px; position: absolute; background-color: @cRed; }
         .material-icons.md-18 { font-size: 18px; }
         .material-icons.md-24 { font-size: 24px; }
         .material-icons.md-36 { font-size: 36px; }
         .material-icons.md-48 { font-size: 48px; }}
-    .button { width: 100%; height: 40px; padding: 0 10px; margin: 5px; border-radius: 5px; display: flex; align-items: center; justify-content: center; background-color: @c1; 
+    .button { width: 100%; height: 40px; padding: 0 10px; margin: 5px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background-color: @c1; 
         &.fit { width: fit-content; height: fit-content; padding: 10px 20px; }
         &.delete { background-color: @cRed !important;
             i, span { color: white !important; }}
@@ -173,7 +172,7 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
             &:hover { background-color: @cG5; }
             i, span { color: @cG2; }}
         .icon, span { color: white; }}
-    .input { width: calc(100% - 30px); height: 40px; min-height: 40px; padding: 0 10px; margin: 5px; border-radius: 5px; position: relative; display: flex; align-items: center; background-color: @cBg;
+    .input { width: calc(100% - 30px); height: 40px; min-height: 40px; padding: 0 10px; margin: 5px; border-radius: 10px; position: relative; display: flex; align-items: center; background-color: @cBg;
         @media @sD { width: 400px; }
         &.center input { text-align: center; }
         &.fake { background-color: transparent; pointer-events: none; }
@@ -185,12 +184,12 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
         .message { top: 43px; left: 5px; position: absolute; display: none; }
         .button { width: fit-content; height: calc(100% - 10px); margin: 0;
             span { white-space: nowrap; }}}
-    textarea { width: calc(100% - 30px); min-height: 50px; padding: 10px; margin: 5px; border-radius: 5px; background-color: @cBg; color: @cG1; }
-    .dropdown { width: 200px; margin: 5px; position: relative; display: flex; align-items: center;
-        select { width: 100%; height: 30px; padding: 5px 10px; margin: 0; border-radius: 5px; color: @cG1; background-color: @cBg; }
+    textarea { width: calc(100% - 30px); min-height: 50px; padding: 10px; margin: 5px; border-radius: 10px; background-color: @cBg; color: @cG1; }
+    .dropdown { width: calc(100% - 10px); margin: 5px; position: relative; display: flex; align-items: center;
+        select { width: 100%; height: 30px; padding: 5px 10px; margin: 0; border-radius: 10px; color: @cG1; background-color: @cBg; }
         .arrow { width: 20px; height: 100%; top: 0; right: 5px; position: absolute; display: flex; align-items: center; justify-content: center; color: @c1; pointer-events: none; }}
-    .tabs { width: calc(100% - 16px); height: 24px; padding: 3px; margin: 5px; border-radius: 7px; display: flex; align-items: center; background-color: @cBg;
-        .tab { width: 100%; height: 100%; border-radius: 5px; display: flex; align-items: center; justify-content: center;
+    .tabs { width: calc(100% - 16px); height: 34px; padding: 3px; margin: 5px; border-radius: 13px; display: flex; align-items: center; background-color: @cBg;
+        .tab { width: 100%; height: 100%; border-radius: 10px; display: flex; align-items: center; justify-content: center;
             &.active { background-color: @c1; box-shadow: unset;
                 span { color: white;  }}
             &:not(.active) {
@@ -203,7 +202,7 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
             &:checked + .slider:before { -webkit-transform: translateX(14px); -ms-transform: translateX(14px); transform: translateX(14px); }}
         .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; border-radius: 34px; background-color: @cG4; -webkit-transition: .4s; transition: .4s;
             &:before { position: absolute; content: ""; height: 16px; width: 16px; left: 2px; bottom: 2px; border-radius: 50%; background-color: white; -webkit-transition: .4s; transition: .4s; }}}
-    .check { width: fit-content; min-height: 20px; padding: 5px 5px 5px 25px; border-radius: 5px; position: relative; display: flex; align-items: center; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; font-size: 12px;
+    .check { width: fit-content; min-height: 20px; padding: 5px 5px 5px 25px; border-radius: 10px; position: relative; display: flex; align-items: center; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; font-size: 12px;
         &:hover { background: @cBg; } 
         &:hover input ~ .checkmark { background-color: white; } /* On mouse-over, add a grey background color */
         .text { margin-left: 2px; }
@@ -218,8 +217,8 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
             &:after { left: 3px; top: 0.5px; width: 3px; height: 6px; border: solid white; border-width: 0 3px 3px 0; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); } /* Style the checkmark/indicator */}}
     .banners { width: calc(100% - 10px); margin: 5px; position: relative;
         .banner { height: 100%; display: none;
-            img { width: 100%; height: 100%; border-radius: 5px; object-fit: cover; }
-            .text { top: 0; left: 0; width: 100%; height: 100%; border-radius: 5px; position: absolute; display: flex; align-items: center; justify-content: center; background-color:rgba(0,0,0,0.5);
+            img { width: 100%; height: 100%; border-radius: 10px; object-fit: cover; }
+            .text { top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px; position: absolute; display: flex; align-items: center; justify-content: center; background-color:rgba(0,0,0,0.5);
                 span { color: white; }}}
         .prev, .next { cursor: pointer; position: absolute; top: 50%; width: auto; padding: 16px; margin-top: -29px; color: white; font-weight: bold; font-size: 18px; transition: 0.6s ease; border-radius: 0 3px 3px 0; user-select: none; }
         .next { right: 0; border-radius: 3px 0 0 3px; } /* Position the "next button" to the right */
@@ -254,7 +253,7 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
     .popup { width: 100%; height: 100%; left: 0; top: 0; position: fixed; display: none; align-items: center; justify-content: center; overflow-x: hidden; overflow-y: hidden; z-index: 9; background-color: rgba(0,0,0,0.75); backdrop-filter: blur(4px);
         .close { top: 20px; right: 20px; height: 20px; width: 20px; position: absolute; display: flex; align-items: center; justify-content: center; color: @cG4; z-index: 1;
             &:hover, &:focus { color: @cG1; }}
-        .popBody { min-width: 300px; max-width: 100%; height: fit-content; max-height: calc(100% - 60px); padding: 10px; margin: 20px; border-radius: 5px; position: relative; display: flex; flex-direction: column; background-color: @cBg;
+        .popBody { min-width: 300px; max-width: 100%; height: fit-content; max-height: calc(100% - 60px); padding: 10px; margin: 20px; border-radius: 10px; position: relative; display: flex; flex-direction: column; background-color: @cBg;
             .popHeader { margin: 5px; display: flex; flex-direction: column; }
             .popMain { margin: 15px 0px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; overflow-y: auto;
                 &::-webkit-scrollbar { -webkit-appearance: none; }

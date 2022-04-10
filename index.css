@@ -262,13 +262,13 @@ button {
 }
 .body .flexH {
   width: fit-content;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
 }
 .body .flexV {
   width: fit-content;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -360,7 +360,7 @@ button {
 }
 .body .grid > div {
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: #F2F1F6;
 }
 .body .grid .grid1 {
@@ -404,10 +404,10 @@ button {
   padding: 5px 2.5px;
 }
 .body table td:first-child {
-  border-radius: 5px 0 0 5px;
+  border-radius: 10px 0 0 10px;
 }
 .body table td:last-child {
-  border-radius: 0 5px 5px 0;
+  border-radius: 0 10px 10px 0;
 }
 .body table td span {
   line-height: 30px;
@@ -496,8 +496,14 @@ button {
   background-color: #F0941D;
 }
 .body .icon.iconButton .new {
-  top: 2px;
-  right: 2px;
+  width: 14px;
+  height: 14px;
+  border: 1px solid white;
+  border-radius: 99px;
+  top: -2px;
+  right: -2px;
+  position: absolute;
+  background-color: #EB5757;
 }
 .body .icon.black {
   color: #333333;
@@ -509,16 +515,6 @@ button {
   min-width: fit-content;
   min-height: fit-content;
   margin: 0;
-}
-.body .icon .new {
-  width: 10px;
-  height: 10px;
-  border: 1px solid white;
-  border-radius: 99px;
-  top: -3px;
-  right: -3px;
-  position: absolute;
-  background-color: #EB5757;
 }
 .body .icon .material-icons.md-18 {
   font-size: 18px;
@@ -537,7 +533,7 @@ button {
   height: 40px;
   padding: 0 10px;
   margin: 5px;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -595,7 +591,7 @@ button {
   min-height: 40px;
   padding: 0 10px;
   margin: 5px;
-  border-radius: 5px;
+  border-radius: 10px;
   position: relative;
   display: flex;
   align-items: center;
@@ -653,12 +649,12 @@ button {
   min-height: 50px;
   padding: 10px;
   margin: 5px;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: #F2F1F6;
   color: #333333;
 }
 .body .dropdown {
-  width: 200px;
+  width: calc(100% - 10px);
   margin: 5px;
   position: relative;
   display: flex;
@@ -669,7 +665,7 @@ button {
   height: 30px;
   padding: 5px 10px;
   margin: 0;
-  border-radius: 5px;
+  border-radius: 10px;
   color: #333333;
   background-color: #F2F1F6;
 }
@@ -687,10 +683,10 @@ button {
 }
 .body .tabs {
   width: calc(100% - 16px);
-  height: 24px;
+  height: 34px;
   padding: 3px;
   margin: 5px;
-  border-radius: 7px;
+  border-radius: 13px;
   display: flex;
   align-items: center;
   background-color: #F2F1F6;
@@ -698,7 +694,7 @@ button {
 .body .tabs .tab {
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -768,7 +764,7 @@ button {
   width: fit-content;
   min-height: 20px;
   padding: 5px 5px 5px 25px;
-  border-radius: 5px;
+  border-radius: 10px;
   position: relative;
   display: flex;
   align-items: center;
@@ -874,7 +870,7 @@ button {
 .body .banners .banner img {
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
   object-fit: cover;
 }
 .body .banners .banner .text {
@@ -882,7 +878,7 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
   position: absolute;
   display: flex;
   align-items: center;
@@ -1112,7 +1108,7 @@ button {
   max-height: calc(100% - 60px);
   padding: 10px;
   margin: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   position: relative;
   display: flex;
   flex-direction: column;
