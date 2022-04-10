@@ -16,11 +16,15 @@ function popSmall() {
     var close       = popSmall.getElementsByClassName("close")[0];
     var submit      = popSmall.getElementsByClassName("submit")[0];
     var cancel      = popSmall.getElementsByClassName("cancel")[0];
-    close.onclick   = function() { popSmall.style.display = "none"; }
-    submit.onclick  = function() { popSmall.style.display = "none"; }
-    cancel.onclick  = function() { popSmall.style.display = "none"; }
-    window.onclick  = function(event) { if (event.target == popSmall) { popSmall.style.display = "none"; }}
-    popSmall.style.display = "flex"; }
+    close.onclick   = function() { popClose(); }
+    submit.onclick  = function() { popClose(); }
+    cancel.onclick  = function() { popClose(); }
+    window.onclick  = function(event) { if (event.target == popSmall) { popClose(); }}
+    function popClose() { 
+        popSmall.style.display = "none";
+        document.body.style.overflow = "scroll"; }
+    popSmall.style.display = "flex";
+    document.body.style.overflow = "hidden"; }
 
 // Popup (Large)
 function popLarge() {
@@ -28,11 +32,15 @@ function popLarge() {
     var close       = popLarge.getElementsByClassName("close")[0];
     var submit      = popLarge.getElementsByClassName("submit")[0];
     var cancel      = popLarge.getElementsByClassName("cancel")[0];
-    close.onclick   = function() { popLarge.style.display = "none"; }
-    submit.onclick  = function() { popLarge.style.display = "none"; }
-    cancel.onclick  = function() { popLarge.style.display = "none"; }
-    window.onclick  = function(event) { if (event.target == popLarge) { popLarge.style.display = "none"; }}
-    popLarge.style.display = "flex"; }
+    close.onclick   = function() { popClose(); }
+    submit.onclick  = function() { popClose(); }
+    cancel.onclick  = function() { popClose(); }
+    window.onclick  = function(event) { if (event.target == popLarge) { popClose(); }}
+    function popClose() { 
+        popLarge.style.display = "none";
+        document.body.style.overflow = "scroll"; }
+    popLarge.style.display = "flex";
+    document.body.style.overflow = "hidden"; }
 
 // Slideshow
 var slideIndex = 1;
