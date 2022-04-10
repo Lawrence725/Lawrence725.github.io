@@ -17,10 +17,10 @@
         <!-- Google Icon -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- Awesome Icon -->
-        <link href="fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
+        <link href="fontawesome-free-6.1.1-web/css/all.css" rel="stylesheet">
     </head>
     <body>
-        <div class="body fixed mobile"> <!-- class: fixed, mobile -->
+        <div class="body fixed mobile popNoScroll"> <!-- class: fixed, mobile -->
             <!-- Spinner -->
             <!-- <div class="spinner"><div><div></div></div></div> -->
             <!-- Toast -->
@@ -29,16 +29,20 @@
             </div>
             <!-- Header -->
             <section class="header">
-                <!-- Icon -->
-                <a class="icon iconButton" href="javascript:history.back()">
-                    <i class="fas fa-chevron-left"></i>
-                </a>
+                <!-- Left -->
+                <div class="flexH width">
+                    <a class="icon iconButton" href="javascript:history.back()">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                </div>
                 <span class="fL">Title</span>
-                <!-- Icon -->
-                <a class="icon iconButton">
-                    <i class="fas fa-bell"></i>
-                    <div class="new"></div>
-                </a>
+                <!-- Right -->
+                <div class="flexH width right">
+                    <a class="icon iconButton">
+                        <i class="fas fa-bell"></i>
+                        <div class="new"></div>
+                    </a>
+                </div>
             </section>
             <!-- Main -->
             <section class="main">
@@ -132,11 +136,6 @@
                         <span>Tab</span>
                     </a>
                 </div>
-                <!-- Number -->
-                <div class="number">
-                    <input type="number" class="fM" value="10" min="0">
-                    <span class="fM unit">Unit</span>
-                </div>
                 <!-- Dropdown -->
                 <div class="dropdown">
                     <select name="type" class="fM">
@@ -145,18 +144,24 @@
                     </select>
                     <div class="arrow"><i class="fas fa-caret-down fa-xs"></i></div>
                 </div>
-                <!-- Date Range -->
-                <div class="dateRange">
-                    <input type="date" class="fM" name="startDate">
-                    <input type="time" class="fM" name="startTime">
-                    <!-- <span class="fL">-</span>
-                    <input type="date" class="fM" name="endDate"> -->
-                </div>
                 <!-- Input -->
-                <div class="input error"> <!-- class: fake -->
+                <div class="input error rounded"> <!-- class: fake / error -->
                     <div class="icon"><i class="fas fa-mobile"></i></div>
                     <input type="text" class="fM" placeholder="自行輸入" value="">
                     <span class="fS error message">必填</span>
+                </div>
+                <div class="input"> <!-- class: fake / error -->
+                    <input type="number" class="fM" value="10" min="0">
+                    <span class="fM">Unit</span>
+                </div>
+                <div class="input"> <!-- class: fake / error -->
+                    <input class="fM date" type="date" name="startDate">
+                    <input class="fM time" type="time" name="startTime">
+                    <!-- <span class="fL">-</span>
+                    <input class="fM date" type="date" name="endDate"> -->
+                </div>
+                <div class="input rounded"> <!-- class: fake / error -->
+                    <input class="file" type="file">
                 </div>
                 <!-- Textarea -->
                 <textarea class="fM" placeholder="Textarea"></textarea>

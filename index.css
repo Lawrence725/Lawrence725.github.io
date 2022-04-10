@@ -1,3 +1,6 @@
+.popNoScroll > * {
+  overflow: hidden;
+}
 body {
   margin: 0;
 }
@@ -38,7 +41,15 @@ button {
 .body .disabled {
   color: #BDBDBD !important;
   filter: grayscale(100%);
+  opacity: 0.5;
   pointer-events: none;
+}
+.body .disabled * {
+  color: #BDBDBD !important;
+}
+.body .disabled img {
+  filter: grayscale(100%);
+  opacity: 0.5;
 }
 .body .error {
   color: #EB5757 !important;
@@ -72,6 +83,9 @@ button {
 }
 .body .under {
   text-decoration: underline !important;
+}
+.body .nowrap {
+  white-space: nowrap;
 }
 .body .single {
   white-space: nowrap;
@@ -217,7 +231,7 @@ button {
   height: 50px;
   padding: 0 10px;
   border-radius: 0 0 20px 20px;
-  z-index: 1;
+  z-index: 8;
   position: fixed;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
@@ -231,7 +245,7 @@ button {
   padding: 0 10px;
   border-radius: 20px 20px 0 0;
   bottom: 0;
-  z-index: 1;
+  z-index: 8;
   position: fixed;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
@@ -281,6 +295,10 @@ button {
 .body .flexH.around,
 .body .flexV.around {
   justify-content: space-around;
+}
+.body .flexH.right,
+.body .flexV.right {
+  justify-content: flex-end;
 }
 .body .flexH.radius,
 .body .flexV.radius {
@@ -410,16 +428,7 @@ button {
   color: #BDBDBD;
 }
 .body table .edit .input,
-.body table .edit .dropdown > select,
-.body table .edit .timeRange,
-.body table .edit .timeRange > select,
-.body table .edit .dateRange,
-.body table .edit .dateRange > input,
-.body table .edit .number,
-.body table .edit .number > input,
-.body table .edit .week,
-.body table .edit .el-date-editor.el-input__inner,
-.body table .edit .el-range-input {
+.body table .edit .dropdown > select {
   background-color: white;
 }
 .body table .edit .action > a {
@@ -441,8 +450,14 @@ button {
 }
 .body .lineH {
   width: 100%;
-  height: 1px;
+  min-height: 1px;
   margin: 5px 0;
+  background-color: #E0E0E0;
+}
+.body .lineV {
+  min-width: 1px;
+  height: 100%;
+  margin: 0 5px;
   background-color: #E0E0E0;
 }
 .body .rounded {
@@ -456,6 +471,7 @@ button {
 .body .img img {
   width: 100%;
   height: 100%;
+  display: flex;
 }
 .body .icon {
   min-width: 20px;
@@ -559,14 +575,25 @@ button {
 .body .button.white span {
   color: #4F4F4F;
 }
+.body .button.gray {
+  background-color: #F2F1F6;
+}
+.body .button.gray:hover {
+  background-color: #E0E0E0;
+}
+.body .button.gray i,
+.body .button.gray span {
+  color: #4F4F4F;
+}
 .body .button .icon,
 .body .button span {
   color: white;
 }
 .body .input {
-  width: calc(100% - 20px);
+  width: calc(100% - 30px);
   height: 40px;
-  padding: 0 5px;
+  min-height: 40px;
+  padding: 0 10px;
   margin: 5px;
   border-radius: 5px;
   position: relative;
@@ -597,6 +624,16 @@ button {
   width: 100%;
   height: 100%;
 }
+.body .input input.date,
+.body .input input.time {
+  width: fit-content;
+  margin: auto;
+}
+.body .input input.file {
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+}
 .body .input .message {
   top: 43px;
   left: 5px;
@@ -619,31 +656,6 @@ button {
   border-radius: 5px;
   background-color: #F2F1F6;
   color: #333333;
-}
-.body .number {
-  width: 180px;
-  height: 40px;
-  padding: 0 10px;
-  margin: 5px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  background-color: #F2F1F6;
-}
-.body .number input {
-  width: 100%;
-  height: 100%;
-  text-align: right;
-}
-.body .number input::-webkit-inner-spin-button {
-  width: 20px;
-  height: 40px;
-}
-.body .number .unit {
-  min-width: 45%;
-  margin: 0;
-  line-height: 40px;
-  text-align: left;
 }
 .body .dropdown {
   width: 200px;
@@ -672,20 +684,6 @@ button {
   justify-content: center;
   color: #F0941D;
   pointer-events: none;
-}
-.body .dateRange {
-  width: 190px;
-  height: 40px;
-  padding: 0 5px;
-  margin: 5px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background-color: #F2F1F6;
-}
-.body .dateRange input:hover {
-  cursor: pointer;
 }
 .body .tabs {
   width: calc(100% - 16px);
@@ -787,9 +785,6 @@ button {
 }
 .body .check:hover input ~ .checkmark {
   background-color: white;
-}
-.body .check:hover .number {
-  background-color: #F2F1F6 !important;
 }
 .body .check .text {
   margin-left: 2px;
@@ -1090,7 +1085,7 @@ button {
   justify-content: center;
   overflow-x: hidden;
   overflow-y: hidden;
-  z-index: 2;
+  z-index: 9;
   background-color: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(4px);
 }
@@ -1104,6 +1099,7 @@ button {
   align-items: center;
   justify-content: center;
   color: #BDBDBD;
+  z-index: 1;
 }
 .body .popup .close:hover,
 .body .popup .close:focus {
