@@ -4,26 +4,6 @@ function rotate(e) {
         { e.className = 'icon iconButton fill rotateB'; }
     else { e.className = 'icon iconButton fill rotateF'; }}
 
-// Slideshow
-var slideIndex = 1;
-showSlides(1);
-function plusSlides(n) {
-    showSlides(slideIndex += n); }
-function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("banner");
-    var dots = document.getElementsByClassName("dot");
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none"; }
-    if (n > slides.length) {slideIndex = 1}    
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", ""); }
-    slides[slideIndex-1].style.display = "flex";  
-    dots[slideIndex-1].className += " active";
-    // setTimeout(plusSlides(1), 2000); // Change image every 2 seconds
-}
-
 // Toast
 function showToast() {
     var toast = document.getElementById("toast");
@@ -54,22 +34,31 @@ function popLarge() {
     window.onclick  = function(event) { if (event.target == popLarge) { popLarge.style.display = "none"; }}
     popLarge.style.display = "flex"; }
 
-// Swipe
+// Slideshow
+var slideIndex = 1;
+showSlides(1);
+function plusSlides(n) {
+    showSlides(slideIndex += n); }
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("banner");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none"; }
+    if (n > slides.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", ""); }
+    slides[slideIndex-1].style.display = "flex";  
+    dots[slideIndex-1].className += " active";
+    // setTimeout(plusSlides(1), 2000); // Change image every 2 seconds
+}
 function swipedetect(el, callback){
-    
-    var touchsurface = el,
-    swipedir,
-    startX,
-    startY,
-    distX,
-    distY,
+    var touchsurface = el, swipedir, startX, startY, distX, distY, elapsedTime, startTime,
     threshold = 150, //required min distance traveled to be considered swipe
     restraint = 100, // maximum distance allowed at the same time in perpendicular direction
     allowedTime = 300, // maximum time allowed to travel that distance
-    elapsedTime,
-    startTime,
     handleswipe = callback || function(swipedir){}
-
     touchsurface.addEventListener('touchstart', function(e){
         var touchobj = e.changedTouches[0]
         swipedir = 'none'
@@ -79,11 +68,9 @@ function swipedetect(el, callback){
         startTime = new Date().getTime() // record time when finger first makes contact with surface
         e.preventDefault()
     }, false)
-
     touchsurface.addEventListener('touchmove', function(e){
         e.preventDefault() // prevent scrolling when inside DIV
     }, false)
-
     touchsurface.addEventListener('touchend', function(e){
         var touchobj = e.changedTouches[0]
         distX = touchobj.pageX - startX // get horizontal dist traveled by finger while in contact with surface
@@ -95,18 +82,14 @@ function swipedetect(el, callback){
             }
             else if (Math.abs(distY) >= threshold && Math.abs(distX) <= restraint){ // 2nd condition for vertical swipe met
                 swipedir = (distY < 0)? 'up' : 'down' // if dist traveled is negative, it indicates up swipe
-            }
-        }
+            }}
         handleswipe(swipedir)
         e.preventDefault()
-    }, false)
-}
-
-//USAGE:
+    }, false)}
 var el = document.getElementById('banners')
 swipedetect(el, function(swipedir){
     // swipedir contains either "none", "left", "right", "top", or "down"
-    if (swipedir =='right')
+    if (swipedir =='left')
         plusSlides(1)
-        // alert('You just swiped left!')
-})
+    if (swipedir =='right')
+        plusSlides(-1) })
