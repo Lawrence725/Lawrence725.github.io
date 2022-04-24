@@ -257,6 +257,33 @@ button {
     margin-right: calc(50% - 374px);
   }
 }
+.body .carousels {
+  width: 100vw;
+  margin-left: -10px;
+  overflow-x: auto;
+}
+.body .carousels::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  -webkit-appearance: none;
+}
+.body .carousels > .flexH {
+  align-items: stretch;
+}
+.body .carousels .carousel {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #F2F1F6;
+}
+.body .carousels .carousel:first-child {
+  margin-left: 15px;
+}
+.body .carousels .carousel:last-child {
+  margin-right: 15px;
+}
 .body .flexH {
   width: fit-content;
   border-radius: 10px;
@@ -1083,10 +1110,11 @@ button {
   backdrop-filter: blur(4px);
 }
 .body .popup .close {
-  top: 20px;
-  right: 20px;
+  top: 18px;
+  right: 15px;
   height: 20px;
   width: 20px;
+  border-radius: 99px;
   position: absolute;
   display: flex;
   align-items: center;
@@ -1114,7 +1142,6 @@ button {
 .body .popup .popBody .popHeader {
   margin: 5px;
   display: flex;
-  flex-direction: column;
 }
 .body .popup .popBody .popMain {
   margin: 15px 0px;
