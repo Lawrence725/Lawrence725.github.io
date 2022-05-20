@@ -10,37 +10,27 @@ function showToast() {
     toast.className = "show";
     setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000); }
 
-// Popup (Small)
-function popSmall() {
-    var popSmall    = document.getElementById("popSmall");
-    var close       = popSmall.getElementsByClassName("close")[0];
-    var submit      = popSmall.getElementsByClassName("submit")[0];
-    var cancel      = popSmall.getElementsByClassName("cancel")[0];
-    close.onclick   = function() { popClose(); }
-    submit.onclick  = function() { popClose(); }
-    cancel.onclick  = function() { popClose(); }
-    window.onclick  = function(event) { if (event.target == popSmall) { popClose(); }}
-    function popClose() { 
-        popSmall.style.display = "none";
-        document.body.style.overflow = "scroll"; }
-    popSmall.style.display = "flex";
+// Popup close
+function popClose(e) {
+    if (e.classList.contains('popup'))
+        window.onclick  = function(event) {
+            if (event.target == e)
+                e.style.display = "none"; }
+    else if (!(e.classList.contains('popBody')))
+        e.closest('.popup').style.display = "none";
+    document.body.style.overflow = "scroll"; }
+
+// Popup (Test)
+function popTest() {
+    document.getElementById("popTest").style.display = "flex";
     document.body.style.overflow = "hidden"; }
 
-// Popup (Large)
-function popLarge() {
-    var popLarge    = document.getElementById("popLarge");
-    var close       = popLarge.getElementsByClassName("close")[0];
-    var submit      = popLarge.getElementsByClassName("submit")[0];
-    var cancel      = popLarge.getElementsByClassName("cancel")[0];
-    close.onclick   = function() { popClose(); }
-    submit.onclick  = function() { popClose(); }
-    cancel.onclick  = function() { popClose(); }
-    window.onclick  = function(event) { if (event.target == popLarge) { popClose(); }}
-    function popClose() { 
-        popLarge.style.display = "none";
-        document.body.style.overflow = "scroll"; }
-    popLarge.style.display = "flex";
-    document.body.style.overflow = "hidden"; }
+// Mobile screen fix
+window.addEventListener(
+    'resize',
+    (function () {
+        document.documentElement.style.setProperty(
+            '--mobileH', `${window.innerHeight}px` );})());
 
 // Slideshow
 var slideIndex = 1;
@@ -96,7 +86,7 @@ function swipedetect(el, callback){
     }, false)}
 var el = document.getElementById('banners')
 swipedetect(el, function(swipedir){
-    // swipedir contains either "none", "left", "right", "top", or "down"
+    // swipedir contains either "none", "left", "right", "up", or "down"
     if (swipedir =='left')
         plusSlides(1)
     if (swipedir =='right')

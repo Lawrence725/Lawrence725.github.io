@@ -74,35 +74,67 @@
                 <div class="carousels">
                     <div class="flexH">
                         <div class="carousel">
-                            <div class="img"><img src="img/favicon.png"></div>
+                            <span class="fXXL third">Font</span>
+                            <span class="fXXL">XXL</span>
+                        </div>
+                        <div class="carousel">
+                            <span class="fXL margin">X Large</span>
                         </div>
                         <div class="carousel">
                             <span class="fL margin">Large</span>
                         </div>
                         <div class="carousel">
-                            <span class="fM margin disabled single">Middle Disabled Single</span>
+                            <span class="fM margin">Middle</span>
                         </div>
                         <div class="carousel">
-                            <span class="fS margin error double">Small Error Double</span>
+                            <span class="fS margin">Small</span>
+                        </div>
+                        <div class="carousel">
+                            <span class="fXS margin">X Small</span>
+                        </div>
+                        <div class="carousel">
+                            <span class="fM margin error">Error</span>
+                        </div>
+                        <div class="carousel">
+                            <span class="fM margin disabled">Disabled</span>
+                        </div>
+                        <div class="carousel">
+                            <span class="fM margin double">Double Line Two</span>
+                        </div>
+                        <div class="carousel">
+                            <span class="fM margin single">Single Line</span>
+                        </div>
+                        <div class="carousel">
+                            <span class="fM margin nowrap">Nowrap Line</span>
                         </div>
                     </div>
                 </div>
+                <!-- Line -->
+                <span class="fXXL third">Line</span>
+                <div class="dashH"></div>
                 <div class="lineH"></div>
-                <div class="grid">
-                    <div class="grid1">
-                        <span class="fM">Header</span>
-                    </div>
-                    <div class="grid2">
-                        <span class="fM">Main</span>
-                    </div>
-                    <div class="grid3">
-                        <span class="fM">Sidebar</span>
-                    </div>
-                    <div class="grid4">
-                        <span class="fM">Footer</span>
-                    </div>
+                <!-- List -->
+                <div class="flexV width margin padding background scroll">
+                    <span class="fXXL third">List</span>
+                    <ol class="chin fM">
+                        <li>一、中文數字</li>
+                        <li>二、中文數字</li>
+                    </ol>
+                    <ol class="romanU">
+                        <li>Roman number</li>
+                        <li>Roman number</li>
+                    </ol>
+                    <ol>
+                        <li>Number</li>
+                        <li>Number</li>
+                    </ol>
+                    <ul>
+                        <li class="bold">Dot</li>
+                        <li class="none">None</li>
+                    </ul>
                 </div>
                 <div class="flexH padding margin background">
+                    <span class="fXXL third">Icon</span>
                     <!-- Icon -->
                     <div class="icon"><i class="fas fa-bell"></i></div>
                     <div class="icon"><span class="material-icons">qr_code_scanner</span></div>
@@ -111,7 +143,14 @@
                     <!-- Text Button -->
                     <a class="textButton fM" onclick="showToast()">Button</a>
                 </div>
+                <div class="flexH padding margin background">
+                    <span class="fXXL third">Image</span>
+                    <!-- Image -->
+                    <img class="img" src="img/favicon.png">
+                    <img class="img" src="img/banner1.png">
+                </div>
                 <div class="flexV padding margin background">
+                    <span class="fXXL third">Check</span>
                     <!-- Switch -->
                     <label class="switch">
                         <input type="checkbox" checked>
@@ -123,6 +162,11 @@
                         <span class="checkmark radio"></span>
                         <span class="text fM">Radio</span>
                     </label>
+                    <label class="check">
+                        <input type="radio" name="radio1"> <!-- checked -->
+                        <span class="checkmark radio"></span>
+                        <span class="text fM">Radio</span>
+                    </label>
                     <!-- Checkbox -->
                     <label class="check">
                         <input type="checkbox" name="checkbox1" checked> <!-- checked -->
@@ -130,6 +174,7 @@
                         <span class="text fM">Checkbox</span>
                     </label>
                 </div>
+                <span class="fXXL third">Element</span>
                 <!-- Tabs -->
                 <div class="tabs fM">
                     <a class="tab active">
@@ -141,7 +186,7 @@
                 </div>
                 <!-- Dropdown -->
                 <div class="dropdown">
-                    <select name="type" class="fM">
+                    <select class="fM">
                         <option value="1">1</option>
                         <option value="2">2</option>
                     </select>
@@ -168,6 +213,47 @@
                 </div>
                 <!-- Textarea -->
                 <textarea class="fM" placeholder="Textarea"></textarea>
+                <!-- Grid -->
+                <div class="grid">
+                    <div class="grid1">
+                        <span class="fXXL third">Grid</span>
+                        <span class="fM">Header</span>
+                    </div>
+                    <div class="grid2">
+                        <span class="fM">Main</span>
+                    </div>
+                    <div class="grid3">
+                        <span class="fM">Sidebar</span>
+                    </div>
+                    <div class="grid4">
+                        <span class="fM">Footer</span>
+                    </div>
+                </div>
+                <!-- Table (empty) -->
+                <table class="fM fit empty">
+                    <tr>
+                        <td align="center">
+                            <span class="fXXL third">Table</span>
+                        </td>
+                        <td align="center">
+                            <span>A2</span>
+                        </td>
+                        <td align="center">
+                            <span>A3</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <span>A1</span>
+                        </td>
+                        <td align="center">
+                            <span>A2</span>
+                        </td>
+                        <td align="center">
+                            <span>A3</span>
+                        </td>
+                    </tr>
+                </table>
                 <!-- Table -->
                 <table class="fM">
                     <tr>
@@ -198,42 +284,23 @@
                         </td>
                     </tr>
                 </table>
-                <!-- Table (empty) -->
-                <table class="fM fit empty">
-                    <tr>
-                        <td align="center">
-                            <span>A1</span>
-                        </td>
-                        <td align="center">
-                            <span>A2</span>
-                        </td>
-                        <td align="center">
-                            <span>A3</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center">
-                            <span>A1</span>
-                        </td>
-                        <td align="center">
-                            <span>A2</span>
-                        </td>
-                        <td align="center">
-                            <span>A3</span>
-                        </td>
-                    </tr>
-                </table>
             </section>
             <!-- Footer -->
             <section class="footer">
                 <!-- Button -->
-                <a class="button secondary" onclick="popSmall()"><span class="fM">Cancel</span></a>
-                <a class="button" onclick="popLarge()"><span class="fM">Button</span></a>
+                <a class="button secondary" onclick="popTest()">
+                    <span class="fM">Cancel</span>
+                </a>
+                <a class="button" href="empty.html">
+                    <span class="fM">Button</span>
+                </a>
             </section>
-            <!-- Popup (Small) -->
-            <section id="popSmall" class="popup">
+            <!-- Popup (Test) -->
+            <section id="popTest" class="popup" onclick="popClose(this)">
                 <div class="popBody">
-                    <a class="close"><i class="fas fa-times"></i></a>
+                    <a class="close" onclick="popClose(this)">
+                        <i class="fas fa-times"></i>
+                    </a>
                     <section class="popHeader">
                         <!-- Left -->
                         <div class="flexH width">
@@ -244,73 +311,16 @@
                         <div class="flexH width right"></div>
                     </section>
                     <section class="popMain">
-                        <span class="fM">Message1</span>
-                        <span class="fM">Message2</span>
+                        <span class="fL">Message1</span>
+                        <span class="fM gray">Message2</span>
                     </section>
                     <section class="popFooter">
-                        <a class="button cancel white"><span class="fM">Cancel</span></a>
-                        <a class="button submit"><span class="fM">Submit</span></a>
-                    </section>
-                </div>
-            </section>
-            <!-- Popup (Large)-->
-            <section id="popLarge" class="popup">
-                <div class="popBody">
-                    <a class="close"><i class="fas fa-times"></i></a>
-                    <section class="popHeader">
-                        <!-- Left -->
-                        <div class="flexH width">
-                            <span class="fL">Title</span>
-                        </div>
-                        <span class="fL">Title</span>
-                        <!-- Right -->
-                        <div class="flexH width right"></div>
-                    </section>
-                    <section class="popMain">
-                        <div class="flexV">
-                            <span class="fM">「TTPush」APP為臺東縣政府</span>
-                            <ol class="chin fM">
-                                <li">一、中文數字</li>
-                                <ol>
-                                    <li>Number</li>
-                                    <ul>
-                                        <li class="none bold">None</li>
-                                        <li class="none">None</li>
-                                    </ul>
-                                    <li>Number</li>
-                                    <ul>
-                                        <li class="bold">Dot</li>
-                                        <li class="none">None</li>
-                                    </ul>
-                                    <li>Number</li>
-                                    <ul>
-                                        <li>None</li>
-                                    </ul>
-                                </ol>
-                                <li">二、中文數字</li>
-                                <ol class="romanU">
-                                    <li>Roman number</li>
-                                    <ul>
-                                        <li class="none bold">None</li>
-                                        <li class="none">None</li>
-                                    </ul>
-                                    <li>Roman number</li>
-                                    <ul>
-                                        <li class="bold">Dot</li>
-                                        <li class="none">None</li>
-                                    </ul>
-                                    <li>Roman number</li>
-                                    <ul>
-                                        <li>None</li>
-                                    </ul>
-                                    <li class="none">None</li>
-                                </ol>
-                            </ol>
-                        </div>
-                    </section>
-                    <section class="popFooter">
-                        <a class="button cancel white"><span class="fM">Cancel</span></a>
-                        <a class="button submit"><span class="fM">Submit</span></a>
+                        <a class="button cancel white" onclick="popClose(this)">
+                            <span class="fM">Cancel</span>
+                        </a>
+                        <a class="button submit" onclick="popClose(this)">
+                            <span class="fM">Submit</span>
+                        </a>
                     </section>
                 </div>
             </section>

@@ -5,55 +5,60 @@
 @sMs:   (max-width: 374px);                             // Mobile (Small)
 @sLand: (max-height: 767px) and (min-width: 568px);     // Mobile (Landscape)
 
-// CSS Color
-@c1:    #F0941D;
-@c2:    #FFF4E5;
-@cG1:   #333333;
-@cG2:   #4F4F4F;
-@cG3:   #828282;
-@cG4:   #BDBDBD;
-@cG5:   #E0E0E0;
-@cG6:   #F2F2F2;
-@cBg:   #F2F1F6;
-@cRed:  #EB5757;
-@cGreen:#27AE60;
+:root {
+    --mobileH: 100%;
 
-body    { margin: 0; }
+    // CSS Color
+    --c1:    #F2994A;
+    --c2:    #FCE5D2;
+    --c3:    #2F80ED;
+    --cG1:   #333333;
+    --cG2:   #4F4F4F;
+    --cG3:   #828282;
+    --cG4:   #BDBDBD;
+    --cG5:   #E0E0E0;
+    --cG6:   #F2F2F2;
+    --cBg:   #F2F1F6;
+    --cRed:  #EB5757;
+    --cGreen:#27AE60;
+}
+html, body { width: 100vw; height: 100vh; height: var(--mobileH); padding: 0 !important; margin: 0 !important; overflow: hidden; }
 body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 'Noto Sans TC', 'Arial', '微軟正黑體', '新細明體', 'sans-serif'; }
-.body   { min-height: 100vh; display: flex; flex-direction: column; background: url(img/bg.png); background-position: center; background-attachment: fixed;
+.body   { height: 100vh; height: var(--mobileH); display: flex; flex-direction: column; background: url(img/bg.png); background-position: center; background-attachment: fixed;
 
     // Color
-    .primary    { color: @c1 !important; }
-    .secondary  { color: @c2 !important; }
-    .gray       { color: @cG3 !important; }
-    .minor      { color: @cG4 !important; }
-    .disabled   { color: @cG4 !important; filter: grayscale(100%); opacity: 0.5; pointer-events: none;
-        *       { color: @cG4 !important; }
+    .primary    { color: var(--c1) !important; }
+    .secondary  { color: var(--c2) !important; }
+    .third      { color: var(--c3) !important; }
+    .gray       { color: var(--cG3) !important; }
+    .minor      { color: var(--cG4) !important; }
+    .disabled   { color: var(--cG4) !important; filter: grayscale(100%); opacity: 0.5; pointer-events: none;
+        *       { color: var(--cG4) !important; }
         img     { filter: grayscale(100%); opacity: 0.5; }}
-    .error      { color: @cRed !important; }
-    .success    { color: @cGreen !important; }
-    .background { background-color: @cBg !important; }
+    .error      { color: var(--cRed) !important; }
+    .success    { color: var(--cGreen) !important; }
+    .background { background-color: var(--cBg) !important; }
 
     // Font
-    .fXXL       { font-size: 36px; }
-    .fXL        { font-size: 24px; }
-    .fL         { font-size: 18px; }
-    .fM         { font-size: 14px; }
-    .fS         { font-size: 12px; }
-    .fXS        { font-size: 10px; }
+    .fXXL       { font-size: clamp(1.6rem, 7vw, 2rem); }
+    .fXL        { font-size: clamp(1.4rem, 6vw, 1.8rem); }
+    .fL         { font-size: clamp(1.2rem, 5vw, 1.6rem); }
+    .fM         { font-size: clamp(1rem, 4vw, 1.4rem); }
+    .fS         { font-size: clamp(0.8rem, 3vw, 1.2rem); }
+    .fXS        { font-size: clamp(0.6rem, 3vw, 1rem); }
     .bold       { font-weight: bold; }
     .under      { text-decoration: underline !important; }
     .nowrap     { white-space: nowrap; }
     .single     { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .double     { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; }
-    .textButton { color: @c1; border-radius: 5px;
-        &:hover { color: @cG3; }}
+    .textButton { color: var(--c1); border-radius: 5px;
+        &:hover { color: var(--cG3); }}
     span, .textButton {
         &.white  { color: white; }
         &.center { text-align: center; }
         &.margin { margin: 5px; }
         &.width  { width: 100%; }}
-    ol { padding: 0 0 20px 30px;
+    ol, ul { padding: 0 0 0 30px; margin: 0;
         &.chin { list-style-type: none;
             > li { margin-left: -20px; }}
         &.romanU { list-style-type: upper-roman; }
@@ -63,18 +68,19 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
             &.none { list-style-type: none; }}}
     
     // Reset
-    span                { color: @cG1; }
-    ol, ul              { color: @cG1; }
-    a                   { text-decoration: none !important; }
-    a:hover             { cursor: pointer; box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.2); }
-    input               { border: 0; padding: 0; color: @cG1; background-color: transparent; }
-    input:focus         { box-shadow: none !important; outline: none; }
-    textarea            { border: 0; }
-    textarea:focus      { box-shadow: none !important; outline: none; }
-    select              { -webkit-appearance: none; -moz-appearance: none; appearance: none; outline: none; border: 0; }
-    select:hover        { cursor: pointer; }
-    iframe              { border: 0; }
-    *, :after, :before  { box-sizing: unset; -webkit-box-sizing: unset; }
+    span                    { color: var(--cG1); }
+    ol, ul                  { color: var(--cG1); }
+    a                       { text-decoration: none !important; }
+    a:hover                 { cursor: pointer; box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.2); }
+    input                   { border: 0; padding: 0; color: var(--cG1); background-color: transparent; }
+    input:focus             { box-shadow: none !important; outline: none; }
+    input:-webkit-autofill  { color: var(--c1) !important; background-color: transparent !important; box-shadow: 0 0 0px 1000px white inset !important; background-clip: content-box !important; }
+    textarea                { border: 0; }
+    textarea:focus          { box-shadow: none !important; outline: none; }
+    select                  { -webkit-appearance: none; -moz-appearance: none; appearance: none; outline: none; border: 0; }
+    select:hover            { cursor: pointer; }
+    iframe                  { border: 0; }
+    *, :after, :before      { box-sizing: unset; -webkit-box-sizing: unset; }
 
     // Container
     .header { width: calc(100% - 20px); height: fit-content; padding: 10px 10px 0 10px; display: flex; align-items: center; justify-content: space-between; }
@@ -86,40 +92,45 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
         .main   { padding: 60px 10px 80px; }
         .footer { height: 70px; padding: 0 10px; border-radius: 20px 20px 0 0; bottom: 0; z-index: 8; position: fixed; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0px -10px 20px rgba(55, 84, 170, 0.1); }}
     &.mobile { @media @sD, @sT { .header, .main, .footer { width: 748px; margin-left: calc(50% - 374px); margin-right: calc(50% - 374px); }}}
-    .carousels { width: 100vw; margin-left: -10px; overflow-x: auto;
-        &::-webkit-scrollbar { width: 0; height: 0; -webkit-appearance: none; }
-        > .flexH { align-items: stretch; }
-        .carousel { padding: 5px; margin: 5px; border-radius: 10px; display: flex; flex-direction: column; background-color: @cBg;
-            &:first-child { margin-left: 15px; }
-            &:last-child { margin-right: 15px; }}}
     .flexH  { width: fit-content; border-radius: 10px; display: flex; align-items: center; }
     .flexV  { width: fit-content; border-radius: 10px; display: flex; flex-direction: column; }
     .flexH, .flexV {
-        &.start             { align-items: flex-start; }
-        &.center            { align-items: center; }
-        &.end               { align-items: flex-end; }
-        &.middle            { justify-content: center; }
-        &.between           { justify-content: space-between; }
-        &.around            { justify-content: space-around; }
-        &.right             { justify-content: flex-end; }
-        &.radius            { border-radius: 0; }
-        &.full              { width: 100vw; }
-        &.width             { width: 100%; }
-        &.height            { height: 100%; }
-        &.padding           { padding: 5px;
-            &.width         { width: calc(100% - 10px); }
-            &.height        { height: calc(100% - 10px); }}
-        &.margin            { margin: 5px;
-            &.width         { width: calc(100% - 10px); }
-            &.height        { height: calc(100% - 10px); }}
-        &.padding.margin    {
-            &.width         { width: calc(100% - 20px); }
-            &.height        { height: calc(100% - 20px); }}}
+        &.start                             { align-items: flex-start; }
+        &.center                            { align-items: center; }
+        &.end                               { align-items: flex-end; }
+        &.middle                            { justify-content: center; }
+        &.between                           { justify-content: space-between; }
+        &.around                            { justify-content: space-around; }
+        &.right                             { justify-content: flex-end; }
+        &.radius                            { border-radius: 0; }
+        &.full                              { width: 100vw; }
+        &.width                             { width: 100%; }
+        &.height                            { height: 100%; }
+        &.padding                           { padding: 5px;
+            &.width                         { width: calc(100% - 10px); }
+            &.height                        { height: calc(100% - 10px); }}
+        &.margin                            { margin: 5px;
+            &.width                         { width: calc(100% - 10px); }
+            &.height                        { height: calc(100% - 10px); }}
+        &.padding.margin                    {
+            &.width                         { width: calc(100% - 20px); }
+            &.height                        { height: calc(100% - 20px); }}
+        &.scroll                            { min-height: 150px; overflow-y: scroll;
+            &::-webkit-scrollbar            { -webkit-appearance: none; }
+            &::-webkit-scrollbar:vertical   { width: 10px; }
+            &::-webkit-scrollbar-thumb      { border-radius: 5px; background-color: var(--cG4); border: 2.5px solid var(--cBg); }}}
+    .carousels { width: 100vw; min-height: 120px; margin-left: -10px; display: flex; overflow-x: auto; overflow-y: hidden;
+        @media @sD, @sT { width: 768px; }
+        &::-webkit-scrollbar { width: 0; height: 0; -webkit-appearance: none; }
+        > .flexH { margin: auto; align-items: stretch; }
+        .carousel { padding: 5px; margin: 5px; border-radius: 10px; display: flex; flex-direction: column; background-color: var(--cBg);
+            &:first-child { margin-left: 15px; }
+            &:last-child { margin-right: 15px; }}}
     .grid { width: calc(100% - 10px); margin: 5px; display: grid; column-gap: 10px; row-gap: 10px; grid-template-columns: auto auto auto auto; grid-template-rows: auto; grid-template-areas: 
         "header header header header"
         "main main . sidebar"
         "footer footer footer footer";
-        > div { padding: 5px; border-radius: 10px; background-color: @cBg; }
+        > div { padding: 5px; border-radius: 10px; background-color: var(--cBg); }
         .grid1 { grid-area: header; }
         .grid2 { grid-area: main; }
         .grid3 { grid-area: sidebar; }
@@ -129,59 +140,59 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
         &.empty { -webkit-border-horizontal-spacing: 0; -webkit-border-vertical-spacing: 0;
             tr { background-color: transparent !important; }
             td { padding: 0 10px 0 0; }}
-        tr:not(:first-child) { background-color: @cBg; }
+        tr:not(:first-child) { background-color: var(--cBg); }
         th { text-align: center; }
         td { padding: 5px 2.5px;
             &:first-child { border-radius: 10px 0 0 10px; }
             &:last-child { border-radius: 0 10px 10px 0; }
             span { line-height: 30px; white-space: unset !important; }}
         .action { width: fit-content; display: flex; align-items: center;
-            a { width: 20px; height: 20px; margin: 0 5px; display: flex; align-items: center; justify-content: center; color: @cG4; }}
+            a { width: 20px; height: 20px; margin: 0 5px; display: flex; align-items: center; justify-content: center; color: var(--cG4); }}
         .edit {
             .input, .dropdown > select { background-color: white; }
-            .action > a { color: @c1; }
-            .off { color: @cG5; }}}
+            .action > a { color: var(--c1); }
+            .off { color: var(--cG5); }}}
 
     // Component
     .hide { display: none !important; }
     .spaceS { width: 100%; height: 10px; }
     .spaceL { width: 100%; height: 50px; }
-    .lineH { width: 100%; min-height: 1px; margin: 5px 0; background-color: @cG5; }
-    .lineV { min-width: 1px; height: 100%; margin: 0 5px; background-color: @cG5; }
+    .lineH { width: 100%; min-height: 1px; margin: 5px 0; background-color: var(--cG5); }
+    .lineV { min-width: 1px; height: 100%; margin: 0 5px; background-color: var(--cG5); }
+    .dashH { width: 100%; border: 1px dashed var(--cG5); }
     .rounded { border-radius: 999px !important; }
-    .img { width: 100px; height: 100px; margin: 5px;
-        img { width: 100%; height: 100%; display: flex; }}
-    .icon { min-width: 20px; min-height: 20px; margin: 5px; border-radius: 99px; position: relative; display: flex; align-items: center; justify-content: center; color: @c1;
+    .img { width: 100px; aspect-ratio: 1 / 1; margin: 5px; border-radius: 10px; object-fit: cover; }
+    .icon { min-width: 20px; min-height: 20px; margin: 5px; border-radius: 99px; position: relative; display: flex; align-items: center; justify-content: center; color: var(--c1);
         &.iconButton { min-width: 30px; min-height: 30px;
-            &:hover { background-color: @cBg; }
-            &.fill { color: white; background-color: @c1; }
-            .new { width: 14px; height: 14px; border: 1px solid white; border-radius: 99px; top: -2px; right: -2px; position: absolute; background-color: @cRed; }}
-        &.black { color: @cG1; }
+            &:hover { background-color: var(--cBg); }
+            &.fill { color: white; background-color: var(--c1); }
+            .new { width: 16px; height: 16px; border: 1px solid white; border-radius: 99px; top: -2px; right: -4px; position: absolute; background-color: var(--cRed); }}
+        &.black { color: var(--cG1); }
         &.white { color: white; }
         &.fit { min-width: fit-content; min-height: fit-content; margin: 0; }
         .material-icons.md-18 { font-size: 18px; }
         .material-icons.md-24 { font-size: 24px; }
         .material-icons.md-36 { font-size: 36px; }
         .material-icons.md-48 { font-size: 48px; }}
-    .button { width: 100%; height: 40px; padding: 0 10px; margin: 5px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background-color: @c1; 
+    .button { width: 100%; height: 40px; padding: 0 10px; margin: 5px; border-radius: 99px; display: flex; align-items: center; justify-content: center; background-color: var(--c1); 
         &.fit { width: fit-content; height: fit-content; padding: 10px 20px; }
-        &.delete { background-color: @cRed !important;
+        &.delete { background-color: var(--cRed) !important;
             i, span { color: white !important; }}
-        &.secondary { background-color: @c2;
-            &:hover { background-color: @cG5; }
-            i, span { color: @c1; }}
+        &.secondary { background-color: var(--c2);
+            &:hover { background-color: var(--cG5); }
+            i, span { color: var(--c1); }}
         &.white { background-color: white;
-            &:hover { background-color: @cG5; }
-            i, span { color: @cG2; }}
-        &.gray { background-color: @cBg;
-            &:hover { background-color: @cG5; }
-            i, span { color: @cG2; }}
+            &:hover { background-color: var(--cG5); }
+            i, span { color: var(--cG2); }}
+        &.gray { background-color: var(--cBg);
+            &:hover { background-color: var(--cG5); }
+            i, span { color: var(--cG2); }}
         .icon, span { color: white; }}
-    .input { width: calc(100% - 30px); height: 40px; min-height: 40px; padding: 0 10px; margin: 5px; border-radius: 10px; position: relative; display: flex; align-items: center; background-color: @cBg;
+    .input { width: calc(100% - 30px); height: 40px; min-height: 40px; padding: 0 10px; margin: 5px; border-radius: 10px; position: relative; display: flex; align-items: center; background-color: var(--cBg);
         @media @sD { width: 400px; }
         &.center input { text-align: center; }
         &.fake { background-color: transparent; pointer-events: none; }
-        &.error { margin-bottom: 20px; border: 1.5px solid @cRed;
+        &.error { margin-bottom: 20px; border: 1.5px solid var(--cRed);
             .message { display: flex; }}
         input { width: 100%; height: 100%;
             &.date, &.time { width: fit-content; margin: auto; }
@@ -189,35 +200,35 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
         .message { top: 43px; left: 5px; position: absolute; display: none; }
         .button { width: fit-content; height: calc(100% - 10px); margin: 0;
             span { white-space: nowrap; }}}
-    textarea { width: calc(100% - 30px); min-height: 50px; padding: 10px; margin: 5px; border-radius: 10px; background-color: @cBg; color: @cG1; }
+    textarea { width: calc(100% - 30px); min-height: 50px; padding: 10px; margin: 5px; border-radius: 10px; background-color: var(--cBg); color: var(--cG1); }
     .dropdown { width: calc(100% - 10px); margin: 5px; position: relative; display: flex; align-items: center;
-        select { width: 100%; height: 30px; padding: 5px 10px; margin: 0; border-radius: 10px; color: @cG1; background-color: @cBg; }
-        .arrow { width: 20px; height: 100%; top: 0; right: 5px; position: absolute; display: flex; align-items: center; justify-content: center; color: @c1; pointer-events: none; }}
-    .tabs { width: calc(100% - 16px); height: 34px; padding: 3px; margin: 5px; border-radius: 13px; display: flex; align-items: center; background-color: @cBg;
+        select { width: 100%; height: 30px; padding: 5px 10px; margin: 0; border-radius: 10px; color: var(--cG1); background-color: var(--cBg); }
+        .arrow { width: 20px; height: 100%; top: 0; right: 5px; position: absolute; display: flex; align-items: center; justify-content: center; color: var(--c1); pointer-events: none; }}
+    .tabs { width: calc(100% - 16px); height: 34px; padding: 3px; margin: 5px; border-radius: 13px; display: flex; align-items: center; background-color: var(--cBg);
         .tab { width: 100%; height: 100%; border-radius: 10px; display: flex; align-items: center; justify-content: center;
-            &.active { background-color: @c1; box-shadow: unset;
+            &.active { background-color: var(--c1); box-shadow: unset;
                 span { color: white;  }}
             &:not(.active) {
-                &:hover { background-color: @cG4; }
-                span { color: @cG3; }}}}
+                &:hover { background-color: var(--cG4); }
+                span { color: var(--cG3); }}}}
     .switch { position: relative; display: inline-block; min-width: 34px; max-width: 34px; height: 20px; margin: 5px;
         input { opacity: 0; width: 0; height: 0;
-            &:checked + .slider { background-color: @cGreen; }
-            &:focus + .slider { box-shadow: 0 0 1px @cGreen; }
+            &:checked + .slider { background-color: var(--cGreen); }
+            &:focus + .slider { box-shadow: 0 0 1px var(--cGreen); }
             &:checked + .slider:before { -webkit-transform: translateX(14px); -ms-transform: translateX(14px); transform: translateX(14px); }}
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; border-radius: 34px; background-color: @cG4; -webkit-transition: .4s; transition: .4s;
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; border-radius: 34px; background-color: var(--cG4); -webkit-transition: .4s; transition: .4s;
             &:before { position: absolute; content: ""; height: 16px; width: 16px; left: 2px; bottom: 2px; border-radius: 50%; background-color: white; -webkit-transition: .4s; transition: .4s; }}}
     .check { width: fit-content; min-height: 20px; padding: 5px 5px 5px 25px; border-radius: 10px; position: relative; display: flex; align-items: center; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; font-size: 12px;
-        &:hover { background: @cBg; } 
+        &:hover { background: var(--cBg); } 
         &:hover input ~ .checkmark { background-color: white; } /* On mouse-over, add a grey background color */
         .text { margin-left: 2px; }
         input { position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0; /* Hide the browser's default radio button */
-            &:checked ~ .checkmark { background-color: @c1; } /* When the radio button is checked, add a blue background */
+            &:checked ~ .checkmark { background-color: var(--c1); border: 2px solid var(--c1); } /* When the radio button is checked, add a blue background */
             &:checked ~ .checkmark:after { display: block; } /* Show the indicator (dot/circle) when checked */}
-        .checkmark.radio { position: absolute; top: auto; bottom: auto; left: 7px; height: 12px; width: 12px; border-radius: 50%; border: 2px solid @c1; background-color: white; 
+        .checkmark.radio { position: absolute; top: auto; bottom: auto; left: 7px; height: 12px; width: 12px; border-radius: 50%; border: 2px solid var(--cG3); background-color: white; 
             &:after { content: ""; position: absolute; display: none; } /* Create the indicator (the dot/circle - hidden when not checked) */
             &:after { top: 4px; left: 4px; width: 4px; height: 4px; border-radius: 50%; background: white; } /* Style the indicator (dot/circle) */}
-        .checkmark.checkbox { position: absolute; top: auto; bottom: auto; left: 7px; height: 12px; width: 12px; border-radius: 2px; border: solid 2px @c1; background-color: white;
+        .checkmark.checkbox { position: absolute; top: auto; bottom: auto; left: 7px; height: 12px; width: 12px; border-radius: 2px; border: solid 2px var(--cG3); background-color: white;
             &:after { content: ""; position: absolute; display: none; } /* Create the checkmark/indicator (hidden when not checked) */
             &:after { left: 3px; top: 0.5px; width: 3px; height: 6px; border: solid white; border-width: 0 3px 3px 0; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); } /* Style the checkmark/indicator */}}
     .banners { width: calc(100% - 10px); margin: 5px; position: relative;
@@ -227,10 +238,10 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
                 span { color: white; }}}
         .prev, .next { cursor: pointer; position: absolute; top: 50%; width: auto; padding: 16px; margin-top: -29px; color: white; font-weight: bold; font-size: 18px; transition: 0.6s ease; border-radius: 0 10px 10px 0; user-select: none; }
         .next { right: 0; border-radius: 10px 0 0 10px; } /* Position the "next button" to the right */
-        .prev:hover, .next:hover { background-color: rgba(255,255,255,0.75); color: @c1; } /* On hover, add a grey background color */
+        .prev:hover, .next:hover { background-color: rgba(255,255,255,0.75); color: var(--c1); } /* On hover, add a grey background color */
         .dots { width: 100%; display: flex; justify-content: center; position: absolute; bottom: 10px;
             .dot { height: 8px; width: 8px; border: 1px solid white; margin: 0 5px; background-color: white; border-radius: 50%; display: inline-block; transition: background-color 0.6s ease; }
-            .active { background-color: @c1; }}}
+            .active { background-color: var(--c1); }}}
 
     // Animation
     .rotateF { animation-name: rotateF; animation-duration: 0.5s; animation-fill-mode: forwards; }
@@ -241,28 +252,28 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
     #toast { width: calc(100% - 20px); bottom: 90px; margin: 0 10px; display: flex; justify-content: center; position: fixed; z-index: 1; visibility: hidden; pointer-events: none;
         &.show { visibility: visible; -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
         div {
-            width: fit-content; padding: 10px 20px; border-radius: 99px; text-align: center; background-color: @cG1;
+            width: fit-content; padding: 10px 20px; border-radius: 99px; text-align: center; background-color: var(--cG1);
             span { color: white; }}}
     @-webkit-keyframes  fadein  { from { bottom: 0; opacity: 0; }       to { bottom: 90px; opacity: 1; } }
     @keyframes          fadein  { from { bottom: 0; opacity: 0; }       to { bottom: 90px; opacity: 1; } }
     @-webkit-keyframes  fadeout { from { bottom: 90px; opacity: 1; }    to { bottom: 0; opacity: 0; } }
     @keyframes          fadeout { from { bottom: 90px; opacity: 1; }    to { bottom: 0; opacity: 0; } }
 
-    .spinner { top: 0; left: 0; width: 100vw; height: 100vh; position: fixed; display: flex; align-items: center; justify-content: center; z-index: 2;
+    .spinner { top: 0; left: 0; width: 100vw; height: 100vh; position: fixed; display: flex; align-items: center; justify-content: center; z-index: 9; background-color: rgba(255,255,255,0.75); backdrop-filter: blur(4px);
         > div { min-width: 80px; min-height: 80px; border-radius: 20px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); 
-            > div { min-width: 40px; min-height: 40px; border: 3px solid @c1; border-top: 3px solid transparent; border-radius: 50%; -webkit-animation: spin 1s linear infinite; animation: spin 1s linear infinite; }}}
+            > div { min-width: 40px; min-height: 40px; border: 3px solid var(--c1); border-top: 3px solid transparent; border-radius: 50%; -webkit-animation: spin 1s linear infinite; animation: spin 1s linear infinite; }}}
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     @-webkit-keyframes spin { 0% { -webkit-transform: rotate(0deg); } 100% { -webkit-transform: rotate(360deg); } }
 
     // Popup
     .popup { width: 100%; height: 100%; left: 0; top: 0; position: fixed; display: none; align-items: center; justify-content: center; overflow-x: hidden; overflow-y: hidden; z-index: 9; background-color: rgba(0,0,0,0.75); backdrop-filter: blur(4px);
-        .close { top: 18px; right: 15px; height: 20px; width: 20px; border-radius: 99px; position: absolute; display: flex; align-items: center; justify-content: center; color: @cG4; z-index: 1;
-            &:hover, &:focus { color: @cG1; }}
-        .popBody { min-width: 300px; max-width: 100%; height: fit-content; max-height: calc(100% - 60px); padding: 10px; margin: 20px; border-radius: 10px; position: relative; display: flex; flex-direction: column; background-color: @cBg;
+        .close { top: 18px; right: 15px; height: 20px; width: 20px; border-radius: 99px; position: absolute; display: flex; align-items: center; justify-content: center; color: var(--cG4); z-index: 1;
+            &:hover, &:focus { color: var(--cG1); }}
+        .popBody { min-width: 300px; max-width: 100%; height: fit-content; max-height: calc(100% - 60px); padding: 10px; margin: 20px; border-radius: 10px; position: relative; display: flex; flex-direction: column; background-color: var(--cBg);
             .popHeader { margin: 5px; display: flex; }
             .popMain { margin: 15px 0px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; overflow-y: auto;
                 &::-webkit-scrollbar { -webkit-appearance: none; }
                 &::-webkit-scrollbar:vertical { width: 10px; }
-                &::-webkit-scrollbar-thumb { border-radius: 5px; background-color: @cG5; border: 2.5px solid @cBg; }}
+                &::-webkit-scrollbar-thumb { border-radius: 5px; background-color: var(--cG5); border: 2.5px solid var(--cBg); }}
             .popFooter { display: flex; }}}
 }
