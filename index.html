@@ -10,7 +10,7 @@
         <title>LUX Design</title>
         <link rel="icon" type="image/png" href="img/favicon.png"/>
         <!-- CSS -->
-        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="css/index.css">
         <!-- Google Font -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+TC">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+TC">
@@ -20,29 +20,49 @@
         <link href="fontawesome-free-6.1.1-web/css/all.css" rel="stylesheet">
     </head>
     <body>
-        <div class="body fixed mobile"> <!-- class: fixed, mobile -->
-            <!-- Spinner -->
-            <!-- <div class="spinner"><div><div></div></div></div> -->
+        <div class="body mobile">
+            <!-- Loading -->
+            <!-- <div class="loading"><div><img src="img/favicon.png"><div></div></div></div> -->
+            <!-- To Top -->
+            <a id="toTop" class="toTop icon iconButton" onclick="toTop()">
+                <i class="fa-solid fa-chevron-up"></i>
+            </a>
             <!-- Toast -->
-            <div id="toast">
+            <div id="toast" class="toast">
                 <div><span class="fS white">Message</span></div>
             </div>
             <!-- Header -->
             <section class="header">
-                <!-- Left -->
                 <div class="flexH width">
-                    <a class="icon iconButton" href="javascript:history.back()">
-                        <i class="fas fa-chevron-left"></i>
-                    </a>
+                    <div class="flexH width">
+                        <a class="icon iconButton" href="javascript:history.back()">
+                            <i class="fas fa-chevron-left fa-lg"></i>
+                        </a>
+                    </div>
+                    <span class="fL">Title</span>
+                    <div class="flexH width right">
+                        <a class="icon iconButton">
+                            <i class="fas fa-bell fa-lg"></i>
+                            <div class="new flexH middle">
+                                <span class="white fXS">99</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <span class="fL">Title</span>
-                <!-- Right -->
-                <div class="flexH width right">
-                    <a class="icon iconButton">
-                        <i class="fas fa-bell"></i>
-                        <div class="new flexH middle">
-                            <span class="white fXS">3</span>
-                        </div>
+                <div class="input"> <!-- class: fake / error -->
+                    <input type="text" class="fM" placeholder="搜尋" value="">
+                    <a class="icon"><i class="fas fa-search"></i></a>
+                    <span class="fS error message">必填</span>
+                </div>
+            </section>
+            <!-- Footer -->
+            <section class="footer">
+                <div class="flexH width">
+                    <a class="button secondary" onclick="popTest()">
+                        <span class="fM">Cancel</span>
+                    </a>
+                    <a class="button" href="empty.html">
+                        <span class="fM">Button</span>
                     </a>
                 </div>
             </section>
@@ -62,8 +82,8 @@
                             <span class="fL">Slogan</span>
                         </div>
                     </div>
-                    <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+                    <a class="prev" onclick="plusSlides(-1, 0)"><i class="fa-solid fa-angle-left"></i></a>
+                    <a class="next" onclick="plusSlides(1, 0)"><i class="fa-solid fa-angle-right"></i></a>
                     <div class="dots">
                         <span class="dot"></span> 
                         <span class="dot"></span> 
@@ -112,7 +132,6 @@
                 <!-- Line -->
                 <span class="fXXL third">Line</span>
                 <div class="dashH"></div>
-                <div class="lineH"></div>
                 <!-- List -->
                 <div class="flexV width margin padding background scroll">
                     <span class="fXXL third">List</span>
@@ -192,8 +211,16 @@
                     </select>
                     <div class="arrow"><i class="fas fa-caret-down fa-xs"></i></div>
                 </div>
+                <div class="inputDropdown">
+                    <input class="fM" list="inputDropdown" placeholder="inputDropdown"/>
+                    <i class="fas fa-caret-down fa-xs primary"></i>
+                    <datalist id="inputDropdown">
+                        <option value="1">
+                        <option value="2">
+                    </datalist>
+                </div>
                 <!-- Input -->
-                <div class="input error rounded"> <!-- class: fake / error -->
+                <div class="input error"> <!-- class: fake / error -->
                     <div class="icon"><i class="fas fa-mobile"></i></div>
                     <input type="text" class="fM" placeholder="自行輸入" value="">
                     <span class="fS error message">必填</span>
@@ -208,7 +235,7 @@
                     <!-- <span class="fL">-</span>
                     <input class="fM date" type="date" name="endDate"> -->
                 </div>
-                <div class="input rounded"> <!-- class: fake / error -->
+                <div class="input"> <!-- class: fake / error -->
                     <input class="file" type="file">
                 </div>
                 <!-- Textarea -->
@@ -285,49 +312,33 @@
                     </tr>
                 </table>
             </section>
-            <!-- Footer -->
-            <section class="footer">
-                <!-- Button -->
-                <a class="button secondary" onclick="popTest()">
-                    <span class="fM">Cancel</span>
-                </a>
-                <a class="button" href="empty.html">
-                    <span class="fM">Button</span>
-                </a>
-            </section>
             <!-- Popup (Test) -->
             <section id="popTest" class="popup" onclick="popClose(this)">
                 <div class="popBody">
                     <a class="close" onclick="popClose(this)">
                         <i class="fas fa-times"></i>
                     </a>
-                    <section class="popHeader">
-                        <!-- Left -->
-                        <div class="flexH width">
-                            <span class="fL">Title</span>
-                        </div>
+                    <div class="flexH width middle">
                         <span class="fL">Title</span>
-                        <!-- Right -->
-                        <div class="flexH width right"></div>
-                    </section>
-                    <section class="popMain">
+                    </div>
+                    <div class="flexV width center">
                         <span class="fL">Message1</span>
                         <span class="fM gray">Message2</span>
-                    </section>
-                    <section class="popFooter">
-                        <a class="button cancel white" onclick="popClose(this)">
+                    </div>
+                    <div class="flexH width">
+                        <a class="button white" onclick="popClose(this)">
                             <span class="fM">Cancel</span>
                         </a>
-                        <a class="button submit" onclick="popClose(this)">
+                        <a class="button" onclick="popClose(this)">
                             <span class="fM">Submit</span>
                         </a>
-                    </section>
+                    </div>
                 </div>
             </section>
         </div>
         <!-- Script -->
         <!-- Chart.js -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="index.js"></script>
+        <script src="js/index.js"></script>
     </body>
 </html>
