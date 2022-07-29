@@ -22,10 +22,18 @@ function showToast() {
 function popClose(e) {
     if (e.classList.contains('popup'))
         window.onclick  = function(event) {
-            if (event.target == e)
-                e.style.display = "none"; }
-    else if (!(e.classList.contains('popBody')))
-        e.closest('.popup').style.display = "none";
+            if (event.target == e) {
+                e.children[0].style.animationName = "popdown";
+                setTimeout(function(){
+                    e.style.display = "none";
+                    e.children[0].style.animationName = "popup";
+                }, 500); }}
+    else if (!(e.classList.contains('popBody'))) {
+        e.closest('.popup').children[0].style.animationName = "popdown";
+        setTimeout(function(){
+            e.closest('.popup').style.display = "none";
+            e.closest('.popup').children[0].style.animationName = "popup";
+        }, 500); }
     document.body.style.overflow = "scroll"; }
 
 // Popup (Test)

@@ -106,7 +106,9 @@ button {
   white-space: nowrap;
 }
 .body .single {
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -1260,6 +1262,9 @@ button {
   flex-direction: column;
   background-color: var(--cBg);
   overflow-y: auto;
+  animation-name: popup;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
 }
 .body .popup .popBody::-webkit-scrollbar {
   -webkit-appearance: none;
@@ -1271,4 +1276,20 @@ button {
   border-radius: 5px;
   background-color: var(--cG5);
   border: 2.5px solid var(--cBg);
+}
+@keyframes popup {
+  0% {
+    margin-bottom: -100vh;
+  }
+  100% {
+    margin-bottom: 20px;
+  }
+}
+@keyframes popdown {
+  0% {
+    margin-bottom: 20px;
+  }
+  100% {
+    margin-bottom: -100vh;
+  }
 }
