@@ -6,9 +6,15 @@
 @sLand: (max-height: 767px) and (min-width: 568px) and (max-width: 1080px) and (orientation: landscape);    // Mobile (Landscape)
 
 :root {
-    --mobileH: 100%;
+    // Font
+    --fXXL: clamp(1.6rem, 7vw, 1.7rem);
+    --fXL:  clamp(1.4rem, 6vw, 1.5rem);
+    --fL:   clamp(1.2rem, 5vw, 1.3rem);
+    --fM:   clamp(1rem, 4vw, 1.2rem);
+    --fS:   clamp(0.8rem, 3vw, 0.9rem);
+    --fXS:  clamp(0.6rem, 3vw, 0.7rem);
 
-    // CSS Color
+    // Color
     --c1:    #F2994A;
     --c2:    #FCE5D2;
     --c3:    #2F80ED;
@@ -40,12 +46,12 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
     .background { background-color: var(--cBg) !important; }
 
     // Font
-    .fXXL       { font-size: clamp(1.6rem, 7vw, 1.7rem); }
-    .fXL        { font-size: clamp(1.4rem, 6vw, 1.5rem); }
-    .fL         { font-size: clamp(1.2rem, 5vw, 1.3rem); }
-    .fM         { font-size: clamp(1rem, 4vw, 1.2rem); }
-    .fS         { font-size: clamp(0.8rem, 3vw, 0.9rem); }
-    .fXS        { font-size: clamp(0.6rem, 3vw, 0.7rem); }
+    .fXXL       { font-size: var(--fXXL); }
+    .fXL        { font-size: var(--fXL); }
+    .fL         { font-size: var(--fL); }
+    .fM         { font-size: var(--fM); }
+    .fS         { font-size: var(--fS); }
+    .fXS        { font-size: var(--fXS); }
     .bold       { font-weight: bold; }
     .under      { text-decoration: underline !important; }
     .nowrap     { white-space: nowrap; }
@@ -215,13 +221,13 @@ body, h1, h2, h3, h4, h5, h6, p, select, input, textarea, button { font-family: 
             &:not(.active) {
                 &:hover { background-color: var(--cG4); }
                 span { color: var(--cG3); }}}}
-    .switch { position: relative; display: inline-block; min-width: 34px; max-width: 34px; height: 20px; margin: 5px;
+    .switch { position: relative; display: inline-block; min-width: 40px; max-width: 40px; height: 24px; margin: 5px;
         input { opacity: 0; width: 0; height: 0;
             &:checked + .slider { background-color: var(--cGreen); }
             &:focus + .slider { box-shadow: 0 0 1px var(--cGreen); }
-            &:checked + .slider:before { -webkit-transform: translateX(14px); -ms-transform: translateX(14px); transform: translateX(14px); }}
+            &:checked + .slider:before { -webkit-transform: translateX(16px); -ms-transform: translateX(16px); transform: translateX(16px); }}
         .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; border-radius: 34px; background-color: var(--cG4); -webkit-transition: .4s; transition: .4s;
-            &:before { position: absolute; content: ""; height: 16px; width: 16px; left: 2px; bottom: 2px; border-radius: 50%; background-color: white; -webkit-transition: .4s; transition: .4s; }}}
+            &:before { position: absolute; content: ""; height: 20px; width: 20px; left: 2px; bottom: 2px; border-radius: 50%; background-color: white; -webkit-transition: .4s; transition: .4s; }}}
     .check { width: fit-content; min-height: 20px; padding: 5px 5px 5px 25px; border-radius: 10px; position: relative; display: flex; align-items: center; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; font-size: 12px;
         &:hover { background: var(--cBg); } 
         &:hover input ~ .checkmark { border: 2px solid var(--cG4); background-color: var(--cG4); } /* On mouse-over, add a grey background color */

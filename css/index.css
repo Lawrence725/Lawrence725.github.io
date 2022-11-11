@@ -1,5 +1,10 @@
 :root {
-  --mobileH: 100%;
+  --fXXL: clamp(1.6rem, 7vw, 1.7rem);
+  --fXL: clamp(1.4rem, 6vw, 1.5rem);
+  --fL: clamp(1.2rem, 5vw, 1.3rem);
+  --fM: clamp(1rem, 4vw, 1.2rem);
+  --fS: clamp(0.8rem, 3vw, 0.9rem);
+  --fXS: clamp(0.6rem, 3vw, 0.7rem);
   --c1: #F2994A;
   --c2: #FCE5D2;
   --c3: #2F80ED;
@@ -79,22 +84,22 @@ button {
   background-color: var(--cBg) !important;
 }
 .body .fXXL {
-  font-size: clamp(1.6rem, 7vw, 1.7rem);
+  font-size: var(--fXXL);
 }
 .body .fXL {
-  font-size: clamp(1.4rem, 6vw, 1.5rem);
+  font-size: var(--fXL);
 }
 .body .fL {
-  font-size: clamp(1.2rem, 5vw, 1.3rem);
+  font-size: var(--fL);
 }
 .body .fM {
-  font-size: clamp(1rem, 4vw, 1.2rem);
+  font-size: var(--fM);
 }
 .body .fS {
-  font-size: clamp(0.8rem, 3vw, 0.9rem);
+  font-size: var(--fS);
 }
 .body .fXS {
-  font-size: clamp(0.6rem, 3vw, 0.7rem);
+  font-size: var(--fXS);
 }
 .body .bold {
   font-weight: bold;
@@ -822,9 +827,9 @@ button {
 .body .switch {
   position: relative;
   display: inline-block;
-  min-width: 34px;
-  max-width: 34px;
-  height: 20px;
+  min-width: 40px;
+  max-width: 40px;
+  height: 24px;
   margin: 5px;
 }
 .body .switch input {
@@ -839,9 +844,9 @@ button {
   box-shadow: 0 0 1px var(--cGreen);
 }
 .body .switch input:checked + .slider:before {
-  -webkit-transform: translateX(14px);
-  -ms-transform: translateX(14px);
-  transform: translateX(14px);
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
 }
 .body .switch .slider {
   position: absolute;
@@ -858,8 +863,8 @@ button {
 .body .switch .slider:before {
   position: absolute;
   content: "";
-  height: 16px;
-  width: 16px;
+  height: 20px;
+  width: 20px;
   left: 2px;
   bottom: 2px;
   border-radius: 50%;
